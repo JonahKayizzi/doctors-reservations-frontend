@@ -1,27 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AddDoctor from './pages/AddDoctor';
+import Doctors from './pages/Doctors';
+import AddReservation from './pages/AddReservation';
+import DeleteDoctor from './pages/DeleteDoctor';
+import DoctorDetails from './pages/DoctorDetails';
+import MyReservations from './pages/MyReservations';
+import LogIn from './pages/LogIn';
+import NavPanel from './components/NavPanel';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App flex h-screen">
+      <Router>
+        <NavPanel />
+        <Routes>
+          <Route path="/" element={<Doctors />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/add_doctor" element={<AddDoctor />} />
+          <Route path="/add_appointment" element={<AddReservation />} />
+          <Route path="/appointments" element={<MyReservations />} />
+          <Route path="/delete_doctor" element={<DeleteDoctor />} />
+          <Route path="/doctor/:id" element={<DoctorDetails />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
