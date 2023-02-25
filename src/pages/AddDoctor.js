@@ -1,9 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addDoctor } from '../redux/Doctors/doctor';
 
-const AddDoctor = () => (
-  <div>
-    <h1>Displays form to add a doctor</h1>
-  </div>
-);
+const AddDoctor = () => {
+  const [doctor, setDoctor] = useState({
+    name: '',
+    speciality: '',
+    description: '',
+    graduation: '',
+    image: '',
+  });
+
+  const handleChange = (e) => {
+    setDoctor({
+      ...doctor,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addDoctor({ ...doctor }));
+  };
+
+  return (
+    <form className="flex flex-col" onSubmit={handleSubmit}>
+      <input type="text" name="name" placeholder="Doctor Name" onChange={handleChange} required />
+      <input type="text" name="speciality" placeholder="Speaciality" onChange={handleChange} required />
+      <textarea type="text" name="description" placeholder="Description" onChange={handleChange} />
+      <input type="date" name="graduation" onChange={handleChange} required />
+      <input type="text" name="image" placeholder="addimagelink" onChange={handleChange} required />
+      <button type="submit">Add New Doctor</button>
+    </form>
+
+  );
+};
 
 export default AddDoctor;
