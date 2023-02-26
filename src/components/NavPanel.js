@@ -2,10 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const NavPanel = () => {
-  const inactive = ' text-lg font-bold py-2';
-  const activeClassName = `text-white active-green${inactive}`;
+  const inactive = 'text-sm md:text-lg font-semibold md:font-bold py-2';
+  const activeClassName = `text-white active-green ${inactive}`;
   return (
-    <div className="flex flex-wrap h-full w-1/5">
+    <div className="flex flex-wrap h-full w-1/4 md:w-1/5">
       <img src="#" alt="logo" className="w-full" />
       <div className="flex flex-col justify-self-center justify-center w-full">
         <NavLink

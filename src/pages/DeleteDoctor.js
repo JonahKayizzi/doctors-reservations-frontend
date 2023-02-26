@@ -1,8 +1,16 @@
 import React from 'react';
 
 const DeleteDoctor = () => (
-  <div>
-    <h1>Displays list of doctors with delete buttons</h1>
+  <div className="w-full flex flex-col items-center">
+    <h1>Delete Doctor</h1>
+    <div>
+      <div>
+        Doctor Name
+        <button className="btn" type="button">
+          Delete
+        </button>
+      </div>
+    </div>
   </div>
 );
 
