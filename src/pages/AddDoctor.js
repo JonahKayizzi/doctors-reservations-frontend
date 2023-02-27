@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addDoctor } from '../redux/Doctors/doctor';
+import { addDoctor } from '../redux/doctors/doctorsSlice';
 
 const AddDoctor = () => {
   const [doctor, setDoctor] = useState({
