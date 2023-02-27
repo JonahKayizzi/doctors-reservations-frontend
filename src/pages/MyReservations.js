@@ -6,7 +6,9 @@ import { getDoctorsData } from '../redux/doctors/doctorsSlice';
 const MyReservations = () => {
   const dispatch = useDispatch();
   const doctors = useSelector((state) => state.doctorsReducer.doctors);
-  const reservations = useSelector((state) => state.reservationsReducer.reservations);
+  const reservations = useSelector(
+    (state) => state.reservationsReducer.reservations
+  );
   const userid = sessionStorage.getItem('user_id');
   useEffect(() => {
     dispatch(getReservations(userid));
@@ -20,9 +22,9 @@ const MyReservations = () => {
           <p>{reservation.date}</p>
           <p>{reservation.city}</p>
           <p>
-            {doctors.filter((doctor) => doctor.id === reservation.doctor_id).map((doctor) => (
-              doctor.name
-            ))}
+            {doctors
+              .filter((doctor) => doctor.id === reservation.doctor_id)
+              .map((doctor) => doctor.name)}
           </p>
         </div>
       ))}
