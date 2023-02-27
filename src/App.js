@@ -6,7 +6,6 @@ import AddReservation from './pages/AddReservation';
 import DeleteDoctor from './pages/DeleteDoctor';
 import DoctorDetails from './pages/DoctorDetails';
 import MyReservations from './pages/MyReservations';
-import LogIn from './pages/LogIn';
 import NavPanel from './components/NavPanel';
 import './App.css';
 
