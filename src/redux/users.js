@@ -5,12 +5,15 @@ const initialState = {
   users: null,
 };
 
-const URL = 'http://127.0.0.1/api/v1/users';
+const URL = 'http://127.0.0.1:3000/api/v1/users';
 
-export const fetchUser = createAsyncThunk('users/fetchUser', async () => {
-  const response = await axios.get(URL);
-  return response.data;
-});
+export const fetchUser = createAsyncThunk(
+  'users/fetchUser',
+  async (payload) => {
+    const response = await axios.post(URL, payload);
+    return response.data;
+  },
+);
 
 export const usersSlice = createSlice({
   name: 'user',
@@ -19,7 +22,7 @@ export const usersSlice = createSlice({
   extraReducers: {
     [fetchUser.fulfilled]: (state, action) => {
       // eslint-disable-next-line no-param-reassign
-      state.users = action.payload;
+      state.users = action.payload.user_id;
     },
   },
 });
