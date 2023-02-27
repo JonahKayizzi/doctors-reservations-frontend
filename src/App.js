@@ -13,16 +13,17 @@ import './App.css';
 function App() {
   return (
     <div className="App flex h-screen">
-      <NavPanel />
-      <Routes>
-        <Route path="/" element={<Doctors />} />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/add_doctor" element={<AddDoctor />} />
-        <Route path="/add_appointment" element={<AddReservation />} />
-        <Route path="/appointments" element={<MyReservations />} />
-        <Route path="/delete_doctor" element={<DeleteDoctor />} />
-        <Route path="/doctor/:id" element={<DoctorDetails />} />
-      </Routes>
+      <Router>
+        <NavPanel />
+        <Routes>
+          <Route path="/" element={<Doctors />} />
+          <Route path="/add_doctor" element={<AddDoctor />} />
+          <Route path="/add_appointment" element={<AddReservation />} />
+          <Route path="/appointments" element={<MyReservations />} />
+          <Route path="/delete_doctor" element={<DeleteDoctor />} />
+          <Route path="/doctor/:id" element={<DoctorDetails />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
