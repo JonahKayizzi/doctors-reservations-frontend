@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddDoctor from './pages/AddDoctor';
 import Doctors from './pages/Doctors';
 import AddReservation from './pages/AddReservation';

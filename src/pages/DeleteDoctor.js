@@ -4,7 +4,7 @@ import { getDoctorsData, deleteDoctor } from '../redux/doctors/doctorsSlice';
 
 const DeleteDoctor = () => {
   const dispatch = useDispatch();
-  const doctors = useSelector((state) => state.doctorsReducer.doctors);
+  const doctors = useSelector((state) => state.doctors);
   useEffect(() => {
     dispatch(getDoctorsData());
   }, []);
@@ -16,12 +16,17 @@ const DeleteDoctor = () => {
       <h1>Delete Doctor</h1>
       <div className="w-3/4 md:w-1/2">
         {doctors.map((doctor) => (
-          <div className="w-100 flex justify-between items-center my-1" key={doctor.id}>
+          <div
+            className="w-100 flex justify-between items-center my-1"
+            key={doctor.id}
+          >
             {doctor.name}
             <button
               className="btn border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
               type="button"
-              onClick={() => { handleClick(doctor.id); }}
+              onClick={() => {
+                handleClick(doctor.id);
+              }}
             >
               Delete
             </button>
