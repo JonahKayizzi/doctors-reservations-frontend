@@ -18,6 +18,7 @@ export const usersSlice = createSlice({
   reducers: {},
   extraReducers: {
     [fetchUser.fulfilled]: (state, action) => {
+      // eslint-disable-next-line no-param-reassign
       state.users = action.payload;
     },
   },
