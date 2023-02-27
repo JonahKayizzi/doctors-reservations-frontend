@@ -18,7 +18,6 @@ const addDoctor = createAsyncThunk('doctors/addDoctor', async (obj) => {
     },
     body: JSON.stringify(obj),
   });
-  console.log(response.json());
   return response.json();
 });
 
@@ -74,12 +73,9 @@ const doctorsSlice = createSlice({
       ...state,
       loading: true,
     }));
-    builder.addCase(addDoctor.fulfilled, (state, action) => ({
+    builder.addCase(addDoctor.fulfilled, (state) => ({
       ...state,
       loading: false,
-      doctors: [
-        ...state.doctors.filter((doctor) => doctor.id !== action.payload.id),
-      ],
     }));
     builder.addCase(addDoctor.rejected, (state, action) => ({
       ...state,
