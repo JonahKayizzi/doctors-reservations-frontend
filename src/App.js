@@ -17,7 +17,6 @@ function App() {
         <NavPanel />
         <Routes>
           <Route path="/" element={<Doctors />} />
-          <Route path="/login" element={<LogIn />} />
           <Route path="/add_doctor" element={<AddDoctor />} />
           <Route path="/add_appointment" element={<AddReservation />} />
           <Route path="/appointments" element={<MyReservations />} />
