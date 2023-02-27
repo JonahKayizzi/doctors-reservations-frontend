@@ -10,6 +10,18 @@ const getDoctorsData = createAsyncThunk(
   },
 );
 
+const addDoctor = createAsyncThunk('doctors/addDoctor', async (obj) => {
+  const response = await fetch('http://localhost:3000/api/v1/doctors', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+  console.log(response.json());
+  return response.json();
+});
+
 const deleteDoctor = createAsyncThunk(
   'doctors/deleteDoctor',
   async (id) => {
@@ -58,8 +70,24 @@ const doctorsSlice = createSlice({
       loading: false,
       error: action.error.message,
     }));
+    builder.addCase(addDoctor.pending, (state) => ({
+      ...state,
+      loading: true,
+    }));
+    builder.addCase(addDoctor.fulfilled, (state, action) => ({
+      ...state,
+      loading: false,
+      doctors: [
+        ...state.doctors.filter((doctor) => doctor.id !== action.payload.id),
+      ],
+    }));
+    builder.addCase(addDoctor.rejected, (state, action) => ({
+      ...state,
+      loading: false,
+      error: action.error.message,
+    }));
   },
 });
 
 export default doctorsSlice.reducer;
-export { getDoctorsData, deleteDoctor };
+export { getDoctorsData, deleteDoctor, addDoctor };
