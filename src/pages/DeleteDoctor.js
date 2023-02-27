@@ -4,7 +4,7 @@ import { getDoctorsData, deleteDoctor } from '../redux/doctors/doctorsSlice';
 
 const DeleteDoctor = () => {
   const dispatch = useDispatch();
-  const doctors = useSelector((state) => state.doctors);
+  const doctors = useSelector((state) => state.doctorsReducer.doctors);
   useEffect(() => {
     dispatch(getDoctorsData());
   }, []);

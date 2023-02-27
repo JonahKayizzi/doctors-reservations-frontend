@@ -4,7 +4,7 @@ import { usersSlice } from './users';
 
 const reducer = combineReducers({
   users: usersSlice.reducer,
-  doctors: doctorsSlice.reducer,
+  doctorsReducer: doctorsSlice.reducer,
 });
 
 const store = configureStore({ reducer });
