@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import App from './App';
 import LogIn from './pages/LogIn';
@@ -9,20 +8,10 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const { users } = store.getState().users;
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Router>
-        { const { users } = store.getState(); 
-        if (users)
-        }
-        <App />
-        {' '}
-        else
-        {' '}
-        <LogIn />
-      </Router>
-    </Provider>
+    <Provider store={store}>{users ? <App /> : <LogIn />}</Provider>
   </React.StrictMode>,
 );
 
