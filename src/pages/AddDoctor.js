@@ -26,15 +26,16 @@ const AddDoctor = () => {
   };
 
   return (
-    <form className="flex flex-col" onSubmit={handleSubmit}>
-      <input type="text" name="name" placeholder="Doctor Name" onChange={handleChange} required />
-      <input type="text" name="speciality" placeholder="Speaciality" onChange={handleChange} required />
-      <textarea type="text" name="description" placeholder="Description" onChange={handleChange} />
-      <input type="date" name="graduation" onChange={handleChange} required />
-      <input type="text" name="image" placeholder="addimagelink" onChange={handleChange} required />
-      <button type="submit">Add New Doctor</button>
-    </form>
-
+    <div className="w-3/4 flex flex-col items-center">
+      <form className="flex flex-col" onSubmit={handleSubmit}>
+        <input type="text" name="name" placeholder="Doctor Name" onChange={handleChange} required />
+        <input type="text" name="speciality" placeholder="Speaciality" onChange={handleChange} required />
+        <textarea type="text" name="description" placeholder="Description" onChange={handleChange} />
+        <input type="date" name="graduation" onChange={handleChange} required />
+        <input type="text" name="image" placeholder="addimagelink" onChange={handleChange} required />
+        <button type="submit">Add New Doctor</button>
+      </form>
+    </div>
   );
 };
 

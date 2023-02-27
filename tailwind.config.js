@@ -15,7 +15,7 @@ module.exports = {
         '.btn': {
           padding: '.5rem 1rem',
           borderRadius: '.25rem',
-          border: '2px solid black',
+          border: '2px solid',
           fontWeight: '600',
         },
       });

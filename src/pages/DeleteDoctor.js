@@ -12,14 +12,14 @@ const DeleteDoctor = () => {
     dispatch(deleteDoctor(doctor));
   };
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-3/4 flex flex-col items-center">
       <h1>Delete Doctor</h1>
-      <div>
+      <div className="w-3/4 md:w-1/2">
         {doctors.map((doctor) => (
-          <div key={doctor.id}>
+          <div className="w-100 flex justify-between items-center my-1" key={doctor.id}>
             {doctor.name}
             <button
-              className="btn"
+              className="btn border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
               type="button"
               onClick={() => { handleClick(doctor.id); }}
             >
