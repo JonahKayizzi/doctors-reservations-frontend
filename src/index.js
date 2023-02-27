@@ -11,5 +11,5 @@ const { users } = store.getState().users;
 root.render(
   <React.StrictMode>
     <Provider store={store}>{users ? <App /> : <LogIn />}</Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

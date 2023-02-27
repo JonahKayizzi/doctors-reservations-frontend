@@ -12,7 +12,7 @@ export const fetchUser = createAsyncThunk(
   async (payload) => {
     const response = await axios.post(URL, payload);
     return response.data;
-  }
+  },
 );
 
 export const usersSlice = createSlice({
