@@ -22,7 +22,7 @@ function renderApp() {
           )}
         </Provider>
       </Router>
-    </React.StrictMode>
+    </React.StrictMode>,
   );
 }
 
