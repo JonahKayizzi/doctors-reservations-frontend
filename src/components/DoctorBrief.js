@@ -13,7 +13,7 @@ const DoctorBrief = (props) => {
       <h3>{speciality}</h3>
       <p>
         {description.substring(0, 50) }
-        ... (read more)
+        <strong style={{ color: 'blue' }}>... (read more)</strong>
       </p>
     </div>
   );

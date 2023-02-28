@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import DoctorBrief from '../components/DoctorBrief';
 import { getDoctorsData } from '../redux/doctors/doctorsSlice';
 
@@ -14,7 +16,7 @@ const Doctors = () => {
   }, [dispatch, doctors]);
 
   const doctorsList = doctors.map((doctor) => (
-    <li key={doctor.id} style={{ width: '200px' }}>
+    <Link key={doctor.id} style={{ width: '200px' }} to={`/doctor/${doctor.id}`}>
       <DoctorBrief
         id={doctor.id}
         name={doctor.name}
@@ -25,7 +27,7 @@ const Doctors = () => {
       <div>Space for social networks</div>
       <br />
       <br />
-    </li>
+    </Link>
   ));
 
   return (
