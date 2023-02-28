@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { getDoctorsData } from '../redux/doctors/doctorsSlice';
 import { addReservation } from '../redux/reservations/reservationsSlice';
@@ -21,8 +21,13 @@ const cities = [
 const ReservationForm = () => {
   const dispatch = useDispatch();
   const doctors = useSelector((state) => state.doctorsReducer.doctors);
-  const [reservation, setReservation] = useState('');
   const navigate = useNavigate();
+  const { doctorId } = useParams();
+
+  const [reservation, setReservation] = useState({
+    doctor_id: doctorId,
+    user_id: JSON.parse(sessionStorage.getItem('user')),
+  });
 
   useEffect(() => {
     if (doctors.length === 0) {
@@ -39,10 +44,7 @@ const ReservationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const userId = JSON.parse(sessionStorage.getItem('user'));
-    console.log(userId);
-    console.log({ ...reservation, user_id: userId });
-    dispatch(addReservation({ ...reservation, user_id: userId }));
+    dispatch(addReservation(reservation));
     alert('Appointment succesfully booked!');
     navigate('/appointments');
   };
@@ -62,14 +64,16 @@ const ReservationForm = () => {
 
         <input type="date" name="date" onChange={handleChange} required />
 
-        <select name="doctor_id" onChange={handleChange} required>
-          <option disabled selected value> -- select a doctor -- </option>
-          {doctors.map((doctor) => (
-            <option key={doctor.id} value={doctor.id}>
-              {doctor.name}
-            </option>
-          ))}
-        </select>
+        { doctorId === '0' && (
+          <select name="doctor_id" onChange={handleChange} required>
+            <option disabled selected value> -- select a doctor -- </option>
+            {doctors.map((doctor) => (
+              <option key={doctor.id} value={doctor.id}>
+                {doctor.name}
+              </option>
+            ))}
+          </select>
+        )}
 
         <button type="submit">Book Now</button>
       </form>
