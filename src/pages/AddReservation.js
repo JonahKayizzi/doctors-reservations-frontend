@@ -20,11 +20,8 @@ const AddReservation = () => {
       user_id: JSON.parse(sessionStorage.getItem('user_id')),
     });
   }, []);
-  console.log(doctors);
-  console.log(reservation.user_id);
 
   const handleChange = (e) => {
-    console.log(e);
     setReservation({
       ...reservation,
       [e.target.name]: e.target.value,
@@ -32,7 +29,6 @@ const AddReservation = () => {
   };
 
   const handleSubmit = (e) => {
-    console.log(reservation);
     e.preventDefault();
     dispatch(addReservation({ ...reservation }, reservation.user));
   };

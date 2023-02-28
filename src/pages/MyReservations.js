@@ -19,7 +19,11 @@ const MyReservations = () => {
         <div key={reservation.id}>
           <p>{reservation.date}</p>
           <p>{reservation.city}</p>
-          <p>{doctors.filter((doctor) => doctor.id === reservation.doctor_id)[0].name}</p>
+          <p>
+            {doctors.filter((doctor) => doctor.id === reservation.doctor_id).map((doctor) => (
+              doctor.name
+            ))}
+          </p>
         </div>
       ))}
     </div>

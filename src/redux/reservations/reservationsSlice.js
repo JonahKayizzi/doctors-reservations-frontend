@@ -4,7 +4,6 @@ const getReservations = createAsyncThunk('reservations/getReservations', async (
   const resp = await fetch(`http://localhost:3000/api/v1/users/${id}/reservations`)
     .then((resp) => resp.json())
     .then((result) => result);
-  console.log(resp);
   return resp;
 });
 
