@@ -15,7 +15,11 @@ function renderApp() {
     <React.StrictMode>
       <Router>
         <Provider store={store}>
-          {users ? <App /> : <LogIn onLogin={renderApp} />}
+          {sessionStorage.getItem('user') || users ? (
+            <App />
+          ) : (
+            <LogIn onLogin={renderApp} />
+          )}
         </Provider>
       </Router>
     </React.StrictMode>
