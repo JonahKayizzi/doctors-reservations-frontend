@@ -23,17 +23,18 @@ const AddDoctor = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addDoctor({ ...doctor }));
+    window.location.href = '/';
   };
 
   return (
-    <div className="w-3/4 flex flex-col items-center">
+    <div className="w-3/4 flex flex-col items-center justify-center">
       <form className="flex flex-col" onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder="Doctor Name" onChange={handleChange} required />
-        <input type="text" name="speciality" placeholder="Speaciality" onChange={handleChange} required />
-        <textarea type="text" name="description" placeholder="Description" onChange={handleChange} />
-        <input type="date" name="graduation" onChange={handleChange} required />
-        <input type="text" name="image" placeholder="addimagelink" onChange={handleChange} required />
-        <button type="submit">Add New Doctor</button>
+        <input type="text" name="name" placeholder="Doctor Name" onChange={handleChange} required className="border rounded-lg py-2 px-3 mb-4" />
+        <input type="text" name="speciality" placeholder="Speciality" onChange={handleChange} required className="border rounded-lg py-2 px-3 mb-4" />
+        <textarea type="text" name="description" placeholder="Description" onChange={handleChange} className="border rounded-lg py-2 px-3 mb-4" />
+        <input type="date" name="graduation" onChange={handleChange} required className="border rounded-lg py-2 px-3 mb-4" />
+        <input type="text" name="image" placeholder="Add Image Link" onChange={handleChange} required className="border rounded-lg py-2 px-3 mb-4" />
+        <button type="submit" className="bg-lime-400 hover:bg-lime-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Add New Doctor</button>
       </form>
     </div>
   );
