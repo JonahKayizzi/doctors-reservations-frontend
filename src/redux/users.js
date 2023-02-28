@@ -13,7 +13,7 @@ export const fetchUser = createAsyncThunk(
   async (payload) => {
     const response = await axios.post(URL, { user_name: payload });
     return response.data;
-  },
+  }
 );
 
 export const usersSlice = createSlice({
@@ -24,10 +24,12 @@ export const usersSlice = createSlice({
     [fetchUser.fulfilled]: (state, action) => {
       // eslint-disable-next-line no-param-reassign
       state.users = action.payload.id;
+      sessionStorage.setItem('user', action.payload.id);
     },
     [fetchUser.rejected]: (state) => {
       // eslint-disable-next-line no-param-reassign
       state.users = null;
+      sessionStorage.removeItem('user');
     },
   },
 });
