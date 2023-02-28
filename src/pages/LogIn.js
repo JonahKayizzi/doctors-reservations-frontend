@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchUser } from '../redux/users';
 
 const LogIn = () => {
   const [username, setUsername] = useState('');
   const dispatch = useDispatch();
 
+  const user = useSelector((state) => state.users.user);
+  console.log(user);
   const onChange = (e) => {
     setUsername(e.target.value);
   };
