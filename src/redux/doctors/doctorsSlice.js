@@ -1,14 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const getDoctorsData = createAsyncThunk(
-  'doctors/getDoctorsData',
-  async () => {
-    const resp = await fetch('http://localhost:3000/api/v1/doctors')
-      .then((resp) => resp.json())
-      .then((result) => result);
-    return resp;
-  },
-);
+const getDoctorsData = createAsyncThunk('doctors/getDoctorsData', async () => {
+  const resp = await fetch('http://localhost:3000/api/v1/doctors')
+    .then((resp) => resp.json())
+    .then((result) => result);
+  return resp;
+});
 
 const addDoctor = createAsyncThunk('doctors/addDoctor', async (obj) => {
   const response = await fetch('http://localhost:3000/api/v1/doctors', {
@@ -21,15 +18,14 @@ const addDoctor = createAsyncThunk('doctors/addDoctor', async (obj) => {
   return response.json();
 });
 
-const deleteDoctor = createAsyncThunk(
-  'doctors/deleteDoctor',
-  async (id) => {
-    const resp = await fetch(`http://localhost:3000/api/v1/doctors/${id}`, { method: 'Delete' })
-      .then((resp) => resp.json())
-      .then((result) => result);
-    return resp;
-  },
-);
+const deleteDoctor = createAsyncThunk('doctors/deleteDoctor', async (id) => {
+  const resp = await fetch(`http://localhost:3000/api/v1/doctors/${id}`, {
+    method: 'Delete',
+  })
+    .then((resp) => resp.json())
+    .then((result) => result);
+  return resp;
+});
 
 const doctorsSlice = createSlice({
   name: 'greeting',
