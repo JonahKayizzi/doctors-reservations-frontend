@@ -13,10 +13,12 @@ function renderApp() {
   const { users } = store.getState().users;
   root.render(
     <React.StrictMode>
-      <Provider store={store}>
-        {users ? <App /> : <LogIn onLogin={renderApp} />}
-      </Provider>
-    </React.StrictMode>
+      <Router>
+        <Provider store={store}>
+          {users ? <App /> : <LogIn onLogin={renderApp} />}
+        </Provider>
+      </Router>
+    </React.StrictMode>,
   );
 }
 
