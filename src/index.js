@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import LogIn from './pages/LogIn';
 import App from './App';
+import './index.css';
 import store from './redux/configureStore';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,7 +18,7 @@ function renderApp() {
           {users ? <App /> : <LogIn onLogin={renderApp} />}
         </Provider>
       </Router>
-    </React.StrictMode>,
+    </React.StrictMode>
   );
 }
 
