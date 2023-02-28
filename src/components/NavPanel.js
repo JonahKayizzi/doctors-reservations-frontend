@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import {
   TiSocialGooglePlus, TiSocialTwitter, TiSocialFacebook, TiSocialVimeo, TiSocialPinterest,
 } from 'react-icons/ti';

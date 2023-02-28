@@ -13,9 +13,8 @@ module.exports = {
     plugin(({ addComponents }) => {
       addComponents({
         '.btn': {
-          padding: '.5rem 1rem',
+          padding: '.25rem .5rem',
           borderRadius: '.25rem',
-          border: '2px solid',
           fontWeight: '600',
         },
       });
