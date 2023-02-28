@@ -15,8 +15,6 @@ const LogIn = ({ onLogin }) => {
     }
   }, [users, onLogin]);
 
-  const user = useSelector((state) => state.users.user);
-  console.log(user);
   const onChange = (e) => {
     setUsername(e.target.value);
   };

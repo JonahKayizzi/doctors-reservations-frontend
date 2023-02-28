@@ -4,6 +4,7 @@ const getReservations = createAsyncThunk('reservations/getReservations', async (
   const resp = await fetch(`http://localhost:3000/api/v1/users/${id}/reservations`)
     .then((resp) => resp.json())
     .then((result) => result);
+  console.log(resp);
   return resp;
 });
 
@@ -22,7 +23,7 @@ const reservationsSlice = createSlice({
   name: 'greeting',
   initialState: {
     loading: false,
-    Reservations: [],
+    reservations: [],
   },
   extraReducers: (builder) => {
     builder.addCase(getReservations.pending, (state) => ({
@@ -32,12 +33,12 @@ const reservationsSlice = createSlice({
     builder.addCase(getReservations.fulfilled, (state, action) => ({
       ...state,
       loading: false,
-      Reservations: action.payload,
+      reservations: action.payload,
     }));
     builder.addCase(getReservations.rejected, (state, action) => ({
       ...state,
       loading: false,
-      Reservations: [],
+      reservations: [],
       error: action.error.message,
     }));
     builder.addCase(addReservation.pending, (state) => ({

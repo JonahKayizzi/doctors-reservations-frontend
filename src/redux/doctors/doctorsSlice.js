@@ -85,5 +85,5 @@ const doctorsSlice = createSlice({
   },
 });
 
-export default doctorsSlice.reducer;
+export default doctorsSlice;
 export { getDoctorsData, deleteDoctor, addDoctor };

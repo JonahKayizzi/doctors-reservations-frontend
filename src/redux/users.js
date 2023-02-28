@@ -24,6 +24,7 @@ export const usersSlice = createSlice({
     [fetchUser.fulfilled]: (state, action) => {
       // eslint-disable-next-line no-param-reassign
       state.users = action.payload.id;
+      sessionStorage.setItem('user_id', JSON.stringify(action.payload.id));
     },
     [fetchUser.rejected]: (state) => {
       // eslint-disable-next-line no-param-reassign
