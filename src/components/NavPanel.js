@@ -1,5 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import {
+  TiSocialGooglePlus, TiSocialTwitter, TiSocialFacebook, TiSocialVimeo, TiSocialPinterest,
+} from 'react-icons/ti';
 import logo from '../assets/logo.png';
 
 const NavPanel = () => {
@@ -42,10 +45,22 @@ const NavPanel = () => {
           Remove Doctor
         </NavLink>
       </div>
-      <div className="w-full flex">
-        <button type="button">
-          social media placeholder
-        </button>
+      <div className="w-full flex flex-col md:flex-row justify-center items-center px-1 mt-auto mb-12">
+        <a href="https://twitter.com/">
+          <TiSocialTwitter className="text-2xl" />
+        </a>
+        <a href="https://www.facebook.com/">
+          <TiSocialFacebook className="text-2xl" />
+        </a>
+        <a href="https://plus.google.com/">
+          <TiSocialGooglePlus className="text-2xl" />
+        </a>
+        <a href="https://vimeo.com/">
+          <TiSocialVimeo className="text-2xl" />
+        </a>
+        <a href="https://www.pinterest.com/">
+          <TiSocialPinterest className="text-2xl" />
+        </a>
       </div>
     </div>
   );
