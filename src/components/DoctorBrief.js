@@ -11,7 +11,10 @@ const DoctorBrief = (props) => {
       <img src={image} alt="doctor" />
       <h2>{name}</h2>
       <h3>{speciality}</h3>
-      <p>{description}</p>
+      <p>
+        {description.substring(0, 50) }
+        ... (read more)
+      </p>
     </div>
   );
 };
