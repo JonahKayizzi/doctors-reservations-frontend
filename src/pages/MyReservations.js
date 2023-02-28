@@ -7,7 +7,7 @@ const MyReservations = () => {
   const dispatch = useDispatch();
   const doctors = useSelector((state) => state.doctorsReducer.doctors);
   const reservations = useSelector((state) => state.reservationsReducer.reservations);
-  const userid = sessionStorage.getItem('user_id');
+  const userid = sessionStorage.getItem('user');
   useEffect(() => {
     dispatch(getReservations(userid));
     dispatch(getDoctorsData());

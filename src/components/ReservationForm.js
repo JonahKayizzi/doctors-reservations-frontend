@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import { getDoctorsData } from '../redux/doctors/doctorsSlice';
 import { addReservation } from '../redux/reservations/reservationsSlice';
 
 const ReservationForm = () => {
   const dispatch = useDispatch();
   const doctors = useSelector((state) => state.doctorsReducer.doctors);
-  const [reservation, setReservation] = useState({
-    date: '',
-    city: '',
-    user_id: null,
-    doctor_id: null,
-  });
+  const [reservation, setReservation] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (doctors.length === 0) {
@@ -28,10 +26,12 @@ const ReservationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const userId = JSON.parse(sessionStorage.getItem('user'));
+    const userId = JSON.parse(sessionStorage.getItem('user_id'));
     console.log(userId);
     console.log({ ...reservation, user_id: userId });
     dispatch(addReservation({ ...reservation, user_id: userId }));
+    alert('Appointment succesfully booked!');
+    navigate('/appointments');
   };
 
   return (
