@@ -7,10 +7,16 @@ import App from './App';
 import store from './redux/configureStore';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <Router>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </Router>,
-);
+
+function renderApp() {
+  const { users } = store.getState().users;
+  root.render(
+    <React.StrictMode>
+      <Provider store={store}>
+        {users ? <App /> : <LogIn onLogin={renderApp} />}
+      </Provider>
+    </React.StrictMode>
+  );
+}
+
+renderApp();
