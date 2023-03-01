@@ -9,16 +9,20 @@ const MyReservations = () => {
   const reservations = useSelector(
     (state) => state.reservationsReducer.reservations
   );
-  const userid = sessionStorage.getItem('user_id');
+  const userid = sessionStorage.getItem('user');
   useEffect(() => {
     dispatch(getReservations(userid));
     dispatch(getDoctorsData());
   }, []);
   return (
     <div>
-      <h1>List of reservations</h1>
+      <h1>My reservations</h1>
       {reservations.map((reservation) => (
         <div key={reservation.id}>
+          {const reservedDoctor = doctors.filter((doctor) => doctor.id === reservation.doctor_id)}
+          <div className="doc-img">
+            <img src={reservedDoctor[0].image} alt="doctor" />
+          </div>
           <p>{reservation.date}</p>
           <p>{reservation.city}</p>
           <p>
