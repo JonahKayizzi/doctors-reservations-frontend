@@ -6,26 +6,36 @@ import { getDoctorsData } from '../redux/doctors/doctorsSlice';
 const MyReservations = () => {
   const dispatch = useDispatch();
   const doctors = useSelector((state) => state.doctorsReducer.doctors);
-  const reservations = useSelector((state) => state.reservationsReducer.reservations);
-  const userid = sessionStorage.getItem('user_id');
+  const reservations = useSelector(
+    (state) => state.reservationsReducer.reservations,
+  );
+  const userid = sessionStorage.getItem('user');
   useEffect(() => {
     dispatch(getReservations(userid));
     dispatch(getDoctorsData());
   }, []);
   return (
     <div>
-      <h1>List of Appointments</h1>
-      {reservations.map((reservation) => (
-        <div key={reservation.id}>
-          <p>{reservation.date}</p>
-          <p>{reservation.city}</p>
-          <p>
-            {doctors.filter((doctor) => doctor.id === reservation.doctor_id).map((doctor) => (
-              doctor.name
-            ))}
-          </p>
-        </div>
-      ))}
+      <h1>My reservations</h1>
+      {reservations.map((reservation) => {
+        const reservedDoctor = doctors.find(
+          (doctor) => doctor.id === reservation.doctor_id,
+        );
+        return (
+          <div key={reservation.id}>
+            <div className="doc-img">
+              <img src={reservedDoctor.image} alt="doctor" />
+            </div>
+            <div className="res-detail">
+              <p>{reservation.date}</p>
+              <p>{reservation.city}</p>
+              <p>{reservedDoctor.name}</p>
+              <p>{reservedDoctor.speciality}</p>
+              <p>{reservedDoctor.graduation}</p>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };
