@@ -23,6 +23,7 @@ const ReservationForm = () => {
   const doctors = useSelector((state) => state.doctorsReducer.doctors);
   const navigate = useNavigate();
   const { doctorId } = useParams();
+  const currentDoctor = doctors.filter((doctor) => doctor.id === parseInt(doctorId, 10))[0];
 
   const [reservation, setReservation] = useState({
     doctor_id: doctorId,
@@ -51,6 +52,19 @@ const ReservationForm = () => {
 
   return (
     <div className="w-3/4 flex flex-col items-center">
+      { doctorId !== '0' && (
+        <div>
+          <p>
+            Book an appointment with Dr.
+            {' '}
+            {currentDoctor.name}
+          </p>
+          <img src={currentDoctor.image} alt="doctor" style={{ width: '150px' }} />
+          <br />
+          <br />
+        </div>
+      )}
+
       <form className="flex flex-col" onSubmit={handleSubmit}>
 
         <select name="city" onChange={handleChange} required>
