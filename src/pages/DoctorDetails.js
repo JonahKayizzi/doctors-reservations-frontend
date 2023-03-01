@@ -27,16 +27,6 @@ const DoctorDetails = () => {
         <p className="p-4 w-full bg-slate-100 text-justify">
           {thisDoctor[0].description}
         </p>
-        <p className="p-4 w-full text-sm text-left">
-          <span className="font-bold">95% Ins Cover </span>
-          For all our patients
-        </p>
-        <Link to="/">
-          <p className="p-0 w-full font-bold text-xs">
-            DISCOVER MORE DOCTORS
-            <span className="text-orange-300">&rarr;</span>
-          </p>
-        </Link>
 
         <Link
           className="mt-auto p-4 w-2/3 bg-lime-600 text-white text-center rounded-3xl"
