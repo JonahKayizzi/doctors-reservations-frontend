@@ -16,7 +16,7 @@ const MyReservations = () => {
   }, []);
   return (
     <div>
-      <h1>My reservations</h1>
+      <h1>My Appointments</h1>
       {reservations.map((reservation) => {
         const reservedDoctor = doctors.find(
           (doctor) => doctor.id === reservation.doctor_id,

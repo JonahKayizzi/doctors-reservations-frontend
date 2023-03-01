@@ -1,19 +1,21 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { AiOutlineInstagram } from '@react-icons/all-files/ai/AiOutlineInstagram';
-import { AiOutlineTwitter } from '@react-icons/all-files/ai/AiOutlineTwitter';
-import { TiSocialGooglePlus } from '@react-icons/all-files/ti/TiSocialGooglePlus';
-import { FaPinterestP } from '@react-icons/all-files/fa/FaPinterestP';
-import { IoLogoVimeo } from '@react-icons/all-files/io5/IoLogoVimeo';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import {
+  TiSocialGooglePlus, TiSocialTwitter, TiSocialFacebook, TiSocialVimeo, TiSocialPinterest,
+} from 'react-icons/ti';
+import logo from '../assets/logo.png';
 
 const NavPanel = () => {
   const inactive = 'h-14 text-sm md:text-lg md:h-auto font-semibold md:font-bold py-2 flex items-center justify-center hover:bg-lime-600 hover:text-white';
   const activeClassName = `text-white active-green ${inactive}`;
   return (
-    <div className="flex flex-wrap h-full w-1/4">
-      <img src="#" alt="logo" className="w-full" />
-      <div className="flex flex-col justify-self-center justify-center w-full">
+    <div className="flex flex-col h-full w-1/4 md:w-48">
+      <div className="h-1/8 w-full p-1">
+        <img src={logo} alt="logo" className="w-full h-full md:h-full" />
+      </div>
+      <div className="flex flex-col justify-center w-full">
         <NavLink
           className={({ isActive }) => (isActive ? activeClassName : inactive)}
           to="/"
@@ -45,24 +47,22 @@ const NavPanel = () => {
           Remove Doctor
         </NavLink>
       </div>
-      <div className="w-full flex flex flex-row justify-center">
-        <ul className="flex gap-1">
-          <li>
-            <AiOutlineInstagram />
-          </li>
-          <li>
-            <AiOutlineTwitter />
-          </li>
-          <li>
-            <TiSocialGooglePlus />
-          </li>
-          <li>
-            <FaPinterestP />
-          </li>
-          <li>
-            <IoLogoVimeo />
-          </li>
-        </ul>
+      <div className="w-full flex flex-col md:flex-row justify-center items-center px-1 mt-auto mb-12">
+        <a href="https://twitter.com/">
+          <TiSocialTwitter className="text-2xl" />
+        </a>
+        <a href="https://www.facebook.com/">
+          <TiSocialFacebook className="text-2xl" />
+        </a>
+        <a href="https://plus.google.com/">
+          <TiSocialGooglePlus className="text-2xl" />
+        </a>
+        <a href="https://vimeo.com/">
+          <TiSocialVimeo className="text-2xl" />
+        </a>
+        <a href="https://www.pinterest.com/">
+          <TiSocialPinterest className="text-2xl" />
+        </a>
       </div>
     </div>
   );
