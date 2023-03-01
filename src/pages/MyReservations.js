@@ -17,21 +17,25 @@ const MyReservations = () => {
   return (
     <div>
       <h1>My reservations</h1>
-      {reservations.map((reservation) => (
-        <div key={reservation.id}>
-          {const reservedDoctor = doctors.filter((doctor) => doctor.id === reservation.doctor_id)}
-          <div className="doc-img">
-            <img src={reservedDoctor[0].image} alt="doctor" />
+      {reservations.map((reservation) => {
+        const reservedDoctor = doctors.find(
+          (doctor) => doctor.id === reservation.doctor_id
+        );
+        return (
+          <div key={reservation.id}>
+            <div className="doc-img">
+              <img src={reservedDoctor.image} alt="doctor" />
+            </div>
+            <div className="res-detail">
+              <p>{reservation.date}</p>
+              <p>{reservation.city}</p>
+              <p>{reservedDoctor.name}</p>
+              <p>{reservedDoctor.speciality}</p>
+              <p>{reservedDoctor.graduation}</p>
+            </div>
           </div>
-          <p>{reservation.date}</p>
-          <p>{reservation.city}</p>
-          <p>
-            {doctors
-              .filter((doctor) => doctor.id === reservation.doctor_id)
-              .map((doctor) => doctor.name)}
-          </p>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
