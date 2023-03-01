@@ -11,12 +11,6 @@ module.exports = {
       fontFamily: {
         Montserrat: ['Montserrat', 'sans-serif'],
       },
-      screens: {
-        sm: '640px', // small screens, mobile devices
-        md: '768px', // medium screens, tablets
-        lg: '1024px', // large screens, laptops
-        xl: '1280px', // extra-large screens, desktops
-      },
     },
   },
   plugins: [
