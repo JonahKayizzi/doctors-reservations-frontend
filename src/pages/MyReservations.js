@@ -7,7 +7,7 @@ const MyReservations = () => {
   const dispatch = useDispatch();
   const doctors = useSelector((state) => state.doctorsReducer.doctors);
   const reservations = useSelector(
-    (state) => state.reservationsReducer.reservations
+    (state) => state.reservationsReducer.reservations,
   );
   const userid = sessionStorage.getItem('user');
   useEffect(() => {
@@ -19,7 +19,7 @@ const MyReservations = () => {
       <h1>My reservations</h1>
       {reservations.map((reservation) => {
         const reservedDoctor = doctors.find(
-          (doctor) => doctor.id === reservation.doctor_id
+          (doctor) => doctor.id === reservation.doctor_id,
         );
         return (
           <div key={reservation.id}>
