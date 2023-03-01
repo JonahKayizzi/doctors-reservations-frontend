@@ -14,7 +14,7 @@ const MyReservations = () => {
   }, []);
   return (
     <div>
-      <h1>List of reservations</h1>
+      <h1>List of Appointments</h1>
       {reservations.map((reservation) => (
         <div key={reservation.id}>
           <p>{reservation.date}</p>
