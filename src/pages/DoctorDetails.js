@@ -6,12 +6,13 @@ const DoctorDetails = () => {
   const { id } = useParams();
   const doctors = useSelector((state) => state.doctorsReducer.doctors);
   const thisDoctor = doctors.filter((doctor) => doctor.id === parseInt(id, 10));
+
   return (
-    <div className="flex p-10 justify-between">
-      <div className="flex items-center w-1/2">
+    <div className="flex flex-col lg:flex-row p-10 justify-between">
+      <div className="flex items-center w-full lg:w-1/2">
         <img src={thisDoctor[0].image} alt="doctor" />
       </div>
-      <div className="flex flex-col justify-start items-end w-1/3 text-right gap-2">
+      <div className="flex flex-col justify-start items-end w-full lg:w-1/3 text-right gap-2">
         <h1 className="font-bold text-4xl">{thisDoctor[0].name}</h1>
         <p className="p-0 w-full font-bold text-xs">
           Verified by the Ministry of Health
