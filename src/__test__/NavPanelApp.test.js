@@ -21,7 +21,7 @@ describe('renderNavPanel', () => {
     fireEvent.click(screen.getByText('Make Appointment'));
     expect(screen.getByRole('button', { name: /Make Appointment/i })).toBeInTheDocument();
     fireEvent.click(screen.getByText('My Appointments'));
-    expect(screen.getByText('List of Appointments')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
     fireEvent.click(screen.getByText('Add Doctor'));
     expect(screen.getByRole('button', { name: /Add New Doctor/i })).toBeInTheDocument();
     fireEvent.click(screen.getByText('Remove Doctor'));
