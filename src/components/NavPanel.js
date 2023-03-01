@@ -8,7 +8,8 @@ import {
 import logo from '../assets/logo.png';
 
 const NavPanel = () => {
-  const inactive = 'h-14 text-sm md:text-lg md:h-auto font-semibold md:font-bold py-2 flex items-center justify-center hover:bg-lime-600 hover:text-white';
+  const inactive =
+    'h-14 text-sm md:text-lg md:h-auto font-semibold md:font-bold py-2 flex items-center justify-center hover:bg-lime-600 hover:text-white';
   const activeClassName = `text-white active-green ${inactive}`;
   return (
     <div className="flex flex-col h-full w-1/4 md:w-48">
