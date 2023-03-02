@@ -52,7 +52,7 @@ const ReservationForm = () => {
 
   return (
     <div className="w-3/4 flex flex-col items-center">
-      { doctorId !== '0' && (
+      { doctorId !== undefined && (
         <div>
           <p>
             Book an appointment with Dr.
@@ -78,7 +78,7 @@ const ReservationForm = () => {
 
         <input type="date" name="date" onChange={handleChange} required />
 
-        { doctorId === '0' && (
+        { doctorId === undefined && (
           <select name="doctor_id" onChange={handleChange} required>
             <option disabled selected value> -- select a doctor -- </option>
             {doctors.map((doctor) => (
