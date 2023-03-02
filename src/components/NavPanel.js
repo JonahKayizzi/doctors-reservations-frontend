@@ -24,7 +24,7 @@ const NavPanel = () => {
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? activeClassName : inactive)}
-          to="/add_appointment"
+          to="/add_appointment/"
         >
           Make Appointment
         </NavLink>
