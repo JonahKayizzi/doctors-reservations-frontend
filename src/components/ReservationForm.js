@@ -50,7 +50,7 @@ const ReservationForm = () => {
   };
 
   return (
-    <div className="flex flex-col py-4">
+    <div className="w-3/4 flex flex-col py-4 items-center">
       { doctorId !== undefined && (
         <div className="flex flex-col items-center pb-4 gap-2">
           <p>
@@ -62,7 +62,7 @@ const ReservationForm = () => {
         </div>
       )}
 
-      <form className="flex flex-col gap-2 lg:flex-row" onSubmit={handleSubmit}>
+      <form className="w-5/8 flex flex-col gap-2 lg:flex-row" onSubmit={handleSubmit}>
 
         <select name="city" className="active-green border-2 border-white-200 rounded-3xl px-3 py-1 lg:w-3/8 text-xs" onChange={handleChange} required>
           <option disabled selected value> Choose a city </option>
