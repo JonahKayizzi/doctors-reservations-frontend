@@ -22,7 +22,7 @@ const ReservationForm = () => {
   const dispatch = useDispatch();
   const doctors = useSelector((state) => state.doctorsReducer.doctors);
   const navigate = useNavigate();
-  const { doctorId } = useParams();
+  const { id: doctorId } = useParams();
   const currentDoctor = doctors.filter((doctor) => doctor.id === parseInt(doctorId, 10))[0];
 
   const [reservation, setReservation] = useState({
