@@ -24,7 +24,7 @@ const NavPanel = () => {
 
   return (
     <div>
-      <div className="flex p-1 md:hidden w-screen bg-white h-20 items-center justify-center">
+      <div className="flex p-1 md:hidden w-screen bg-white h-20 items-center justify-center border-b">
         <Menu
           isOpen={menuOpen}
           onStateChange={(state) => handleStateChange(state)}
