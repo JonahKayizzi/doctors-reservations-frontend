@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import axios from 'axios';
 
 const initialState = {
   users: null,
@@ -8,13 +7,18 @@ const initialState = {
 
 const URL = 'http://127.0.0.1:3000/api/v1/users';
 
-export const fetchUser = createAsyncThunk(
-  'users/fetchUser',
-  async (payload) => {
-    const response = await axios.post(URL, { user_name: payload });
-    return response.data;
-  },
-);
+export const fetchUser = createAsyncThunk('users/fetchUser', async () => {
+  const resp = await fetch(URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ user_name: 'user' }),
+  })
+    .then((resp) => resp.json())
+    .then((result) => result);
+  return resp;
+});
 
 export const usersSlice = createSlice({
   name: 'user',
