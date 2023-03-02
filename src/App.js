@@ -11,7 +11,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App flex h-screen">
+    <div className="App flex flex-col md:flex-row h-screen">
       <NavPanel />
       <Routes>
         <Route path="/" element={<Doctors />} />

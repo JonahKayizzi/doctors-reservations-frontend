@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchUser } from '../redux/users';
-import logo from '../imgs/logo.png';
-import doctors from '../imgs/doctors.png';
+import logo from '../assets/logo.png';
+import doctors from '../assets/doctors.png';
 
 const LogIn = ({ onLogin }) => {
   const [username, setUsername] = useState('');
