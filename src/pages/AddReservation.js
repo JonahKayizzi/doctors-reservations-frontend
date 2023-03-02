@@ -14,8 +14,9 @@ const backgroundStyle = {
 const AddReservation = () => (
   <div className="flex flex-col items-center active-green" style={backgroundStyle}>
     <div className="w-3/4 h-full flex flex-col items-center justify-center text-white">
-      <h2 className="">BOOK A DOCTOR APPOINTMENT</h2>
-      <p>
+      <h2 className="text-xl font-bold">BOOK A DOCTOR APPOINTMENT</h2>
+      <div className="w-3/4 border-b-2 border-white-100 my-4" />
+      <p className="text-sm">
         Take care of your health, book a doctor&apos;s appointment today.
         Our expert team is ready to provide personalized
         care and answer any questions you may have.

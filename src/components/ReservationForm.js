@@ -50,7 +50,7 @@ const ReservationForm = () => {
   };
 
   return (
-    <div className="w-3/4 flex flex-col items-center">
+    <div className="w-3/4 flex flex-col items-center py-4">
       { doctorId !== undefined && (
         <div>
           <p>
@@ -67,7 +67,7 @@ const ReservationForm = () => {
       <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
 
         <select name="city" className="active-green border-2 border-white-200 rounded-3xl px-3 py-1" onChange={handleChange} required>
-          <option disabled selected value> -- select a city -- </option>
+          <option disabled selected value> -- Choose a city -- </option>
           {cities.map((city) => (
             <option key={city.id} value={city.name}>
               {city.name}
@@ -79,7 +79,7 @@ const ReservationForm = () => {
 
         { doctorId === undefined && (
           <select name="doctor_id" className="active-green border-2 border-white-200 rounded-3xl px-3 py-1" onChange={handleChange} required>
-            <option disabled selected value> -- select a doctor -- </option>
+            <option disabled selected value> -- Choose a doctor -- </option>
             {doctors.map((doctor) => (
               <option key={doctor.id} value={doctor.id}>
                 {doctor.name}
@@ -88,7 +88,7 @@ const ReservationForm = () => {
           </select>
         )}
 
-        <button type="submit" className="bg-white text-active-green border-2 border-white-200 rounded-3xl px-3 py-1">Book Now</button>
+        <button type="submit" className="bg-white text-active-green border-2 border-white-200 rounded-3xl px-3 py-1 font-medium">Book Now</button>
       </form>
     </div>
   );
