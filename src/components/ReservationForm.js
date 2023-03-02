@@ -52,15 +52,13 @@ const ReservationForm = () => {
   return (
     <div className="w-3/4 flex flex-col items-center py-4">
       { doctorId !== undefined && (
-        <div>
+        <div className="flex flex-col items-center pb-4 gap-2">
           <p>
             Book an appointment with Dr.
             {' '}
-            {currentDoctor.name}
+            <strong className="underline">{currentDoctor.name}</strong>
           </p>
-          <img src={currentDoctor.image} alt="doctor" style={{ width: '150px' }} />
-          <br />
-          <br />
+          <img src={currentDoctor.image} alt="doctor" className="w-1/2 border-8 rounded-lg" />
         </div>
       )}
 
