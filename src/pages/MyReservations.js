@@ -24,7 +24,7 @@ const MyReservations = () => {
           );
           return (
             <div
-              className="flex flex-col md:flex-row justify-around p-6 border border-lime-200 bg-slate-100"
+              className="flex flex-col md:flex-row items-center justify-around p-6 border border-lime-200 bg-slate-100"
               key={reservation.id}
             >
               <div className="flex flex-col md:flex-row w-full md:w-1/2">
@@ -45,7 +45,7 @@ const MyReservations = () => {
               <div className="flex flex-col md:flex-row w-full md:w-1/2">
                 <div className="w-1/4 md:w-auto flex justify-center mt-4 md:mt-0">
                   <img
-                    className="lg:w-1/5 w-2/3 rounded-full border-2 border-lime-400"
+                    className="lg:w-1/6 w-2/3 rounded-full border-2 border-lime-400"
                     src={reservedDoctor.image}
                     alt="doctor"
                   />
