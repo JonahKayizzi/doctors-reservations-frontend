@@ -41,3 +41,73 @@
 .active-green {
   background-color: #98bf10;
 }
+
+.bm-burger-button {
+  width: 20px;
+  height: 20px;
+  top: 20px;
+  left: 20px;
+  position: absolute;
+  padding: 1rem;
+}
+
+.bm-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #98bf10;
+}
+
+.bm-menu {
+  background: white;
+  width: 100vw;
+}
+
+.bm-menu-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100vw;
+}
+
+.bm-item-list {
+  position: relative;
+  top: 48px;
+  height: 100%;
+  width: 100%;
+}
+
+.bm-item {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.15rem;
+  padding: 0.8rem 1.5rem;
+}
+
+.bm-item:hover {
+  background: #98bf10;
+  color: white;
+}
+
+.bm-burger-bars {
+  background: #98bf10;
+  border-radius: 2px;
+}
+
+.bm-cross {
+  position: relative;
+  background: #98bf10;
+  height: 34px !important;
+  width: 5px !important;
+  right: 7px !important;
+}
+
+.bm-cross-button {
+  width: 48px !important;
+  height: 48px !important;
+  top: 3px !important;
+  right: -72px !important;
+}
