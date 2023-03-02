@@ -46,7 +46,6 @@ const ReservationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addReservation(reservation));
-    alert('Appointment succesfully booked!');
     navigate('/appointments');
   };
 
