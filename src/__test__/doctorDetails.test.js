@@ -5,7 +5,6 @@ import { render, screen } from '@testing-library/react';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import DoctorDetails from '../pages/DoctorDetails';
-import store from '../redux/configureStore';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

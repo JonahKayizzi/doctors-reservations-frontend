@@ -4,8 +4,6 @@ import { render } from '@testing-library/react';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MyReservations from '../pages/MyReservations';
-import { getReservations } from '../redux/reservations/reservationsSlice';
-import { getDoctorsData } from '../redux/doctors/doctorsSlice';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
