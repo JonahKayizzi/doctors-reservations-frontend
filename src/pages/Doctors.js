@@ -4,7 +4,6 @@ import {
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import DoctorBrief from '../components/DoctorBrief';
 import { getDoctorsData } from '../redux/doctors/doctorsSlice';
@@ -20,19 +19,27 @@ const Doctors = () => {
   }, [dispatch, doctors]);
 
   const doctorsList = doctors.map((doctor, index) => (
-    <Slide index={index}>
+    // eslint-disable-next-line
+    <Slide key={index + 1} index={index}>
       <DoctorBrief
         id={doctor.id}
         name={doctor.name}
         image={doctor.image}
         speciality={doctor.speciality}
+        description={doctor.description}
       />
     </Slide>
   ));
 
   return (
-    <div className="container mx-auto">
-      <div className="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
+    <div className="flex flex-col h-3/4 self-center">
+
+      <div className="flex flex-col items-center">
+        <h2 className="font-black text-3xl">OUR DOCTORS</h2>
+        <p className=" text-gray-500">Please select a doctor</p>
+        <div className="border-b-2 border-gray-200 border-dotted w-1/5 my-10" />
+      </div>
+      <div className="flex items-center justify-center w-full px-4">
         {/* Carousel for desktop and large size devices */}
         <CarouselProvider className="lg:block hidden" naturalSlideWidth={100} isIntrinsicHeight totalSlides={9} visibleSlides={3} step={1} infinite>
           <div className="w-full relative flex items-center justify-center">
@@ -364,6 +371,7 @@ const Doctors = () => {
           </div>
         </CarouselProvider>
       </div>
+
     </div>
   );
 };
