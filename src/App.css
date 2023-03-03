@@ -118,3 +118,7 @@
   width: 48px !important;
   right: 10px !important;
 }
+
+.btn-carousel {
+  color: red !important;
+}
