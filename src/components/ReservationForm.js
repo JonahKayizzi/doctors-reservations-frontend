@@ -54,7 +54,7 @@ const ReservationForm = () => {
       { doctorId !== undefined && (
         <div className="flex flex-col items-center pb-4 gap-2">
           <p>
-            Book an appointment with Dr.
+            Book an appointment with M.D.
             {' '}
             <strong className="underline">{currentDoctor.name}</strong>
           </p>

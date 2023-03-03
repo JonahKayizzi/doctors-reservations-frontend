@@ -12,16 +12,21 @@ const DoctorBrief = (props) => {
   return (
     <div className="flex flex-col relative h-full">
       <Link to={`/doctor/${id}`}>
-        <div className="h-2/3">
+        <div className="flex flex-col items-center">
           <img src={image} alt="sitting area" className="h-full" />
+          <div className="flex flex-col items-center pt-4 w-full">
+            <h2 className="font-black text-xl">{name}</h2>
+            <div className="border-b-2 border-gray-200 border-dotted w-1/5 my-3" />
+            <h3 className="text-gray-500">{speciality}</h3>
+            <div>
+              Space for social network links
+            </div>
+          </div>
         </div>
+        {/* Next div used to force carousel to work, do not remove */}
         <div className="absolute flex flex-col items-center pt-4 w-full">
-          <h2 className="font-black text-xl">{name}</h2>
-          <h3 className="text-gray-500">{speciality}</h3>
-          <div className="border-b-2 border-gray-200 border-dotted w-1/5 my-3" />
-          <p className="text-gray-500">
-            { description.length > 50 ? description.substring(0, 50) : description }
-            { description.length > 50 ? '...' : '' }
+          <p className="hidden text-gray-500">
+            { description.substring(0, 2) }
           </p>
         </div>
       </Link>
