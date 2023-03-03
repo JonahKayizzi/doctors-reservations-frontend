@@ -33,13 +33,12 @@ const Doctors = () => {
 
   return (
     <div className="flex flex-col h-3/4 self-center">
-
       <div className="flex flex-col items-center pt-5 md:pt-0">
         <h2 className="font-black text-xl md:text-3xl">OUR DOCTORS</h2>
         <p className=" text-gray-500">Please select a doctor</p>
         <div className="border-b-2 border-gray-200 border-dotted w-1/5 my-2 md:my-10" />
       </div>
-      <div className="flex items-center justify-center w-full px-4">
+      <div className="flex items-center justify-center w-full">
         {/* Carousel for desktop and large size devices */}
         <CarouselProvider className="lg:block hidden" naturalSlideWidth={100} isIntrinsicHeight totalSlides={Math.ceil(doctors.length / 3) * 3} visibleSlides={3} step={1} infinite>
           <div className="w-full relative flex items-center justify-center">
@@ -48,7 +47,7 @@ const Doctors = () => {
                 <path d="M7 1L1 7L7 13" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </ButtonBack>
-            <div className="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
+            <div className="w-3/4 h-full mx-auto overflow-x-hidden overflow-y-hidden">
               <Slider>
                 <div id="slider" className="h-full flex lg:gap-8 md:gap-6 gap-14 items-start justify-start transition ease-out duration-700">
                   {doctorsList}
@@ -71,7 +70,7 @@ const Doctors = () => {
                 <path d="M7 1L1 7L7 13" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </ButtonBack>
-            <div className="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
+            <div className="w-3/4 h-full mx-auto overflow-x-hidden overflow-y-hidden">
               <Slider>
                 <div id="slider" className="h-full flex lg:gap-8 md:gap-6 gap-14 items-start justify-start transition ease-out duration-700">
                   {doctorsList}
@@ -94,7 +93,7 @@ const Doctors = () => {
                 <path d="M7 1L1 7L7 13" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </ButtonBack>
-            <div className="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
+            <div className="w-3/4 h-full mx-auto overflow-x-hidden overflow-y-hidden">
               <Slider>
                 <div id="slider" className="h-full w-full flex lg:gap-8 md:gap-6 items-start justify-start transition ease-out duration-700">
                   {doctorsList}

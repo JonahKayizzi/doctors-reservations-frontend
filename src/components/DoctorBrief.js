@@ -3,6 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { Link } from 'react-router-dom';
+import {
+  TiSocialInstagram, TiSocialTwitter, TiSocialFacebook,
+} from 'react-icons/ti';
 
 const DoctorBrief = (props) => {
   const {
@@ -13,13 +16,21 @@ const DoctorBrief = (props) => {
     <div className="flex flex-col relative h-full">
       <Link to={`/doctor/${id}`}>
         <div className="flex flex-col items-center">
-          <img src={image} alt="sitting area" className="h-full" />
-          <div className="flex flex-col items-center pt-4 w-full">
+          <img src={image} alt="sitting area" />
+          <div className="flex flex-col items-center pt-4 w-full gap-1 md:gap-2">
             <h2 className="font-black text-xl">{name}</h2>
-            <div className="border-b-2 border-gray-200 border-dotted w-1/5 my-1 md:my-3" />
+            <div className="border-b-2 border-gray-200 border-dotted w-1/5" />
             <h3 className="text-gray-500">{speciality}</h3>
-            <div>
-              Space for social network links
+            <div className="flex justify-between w-1/3 md:w-1/2 mt-3 md:mt-5">
+              <a className="p-1 border-2 rounded-full border-gray-300" href="https://twitter.com/">
+                <TiSocialTwitter className="text-xl fill-gray-300" />
+              </a>
+              <a className="p-1 border-2 rounded-full border-gray-300" href="https://www.facebook.com/">
+                <TiSocialFacebook className="text-xl fill-gray-300" />
+              </a>
+              <a className="p-1 border-2 rounded-full border-gray-300" href="https://www.instagram.com/">
+                <TiSocialInstagram className="text-xl fill-gray-300" />
+              </a>
             </div>
           </div>
         </div>
