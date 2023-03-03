@@ -1,61 +1,37 @@
-// import React, { useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { Link } from 'react-router-dom';
-
-// import DoctorBrief from '../components/DoctorBrief';
-// import { getDoctorsData } from '../redux/doctors/doctorsSlice';
-
-// const Doctors = () => {
-//   const dispatch = useDispatch();
-//   const doctors = useSelector((state) => state.doctorsReducer.doctors);
-
-//   useEffect(() => {
-//     if (doctors.length === 0) {
-//       dispatch(getDoctorsData());
-//     }
-//   }, [dispatch, doctors]);
-
-//   const doctorsList = doctors.map((doctor) => (
-//     <Link key={doctor.id} style={{ width: '200px' }} to={`/doctor/${doctor.id}`}>
-//       <DoctorBrief
-//         id={doctor.id}
-//         name={doctor.name}
-//         image={doctor.image}
-//         speciality={doctor.speciality}
-//         description={doctor.description}
-//       />
-//       <div>Space for social networks</div>
-//       <br />
-//       <br />
-//     </Link>
-//   ));
-
-//   return (
-//     <div>
-//       <div>
-//         <h1>Our doctors</h1>
-//         <p>Check out between the most selected list of doctors around the country</p>
-//       </div>
-//       <br />
-//       <br />
-//       <ul>
-//         {doctorsList}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default Doctors;
-
-import React from 'react';
 import {
   CarouselProvider, Slider, Slide, ButtonBack, ButtonNext,
 } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-/* Install pure-react-carousel using -> npm i pure-react-carousel */
+import DoctorBrief from '../components/DoctorBrief';
+import { getDoctorsData } from '../redux/doctors/doctorsSlice';
 
-export default function Doctors() {
+const Doctors = () => {
+  const dispatch = useDispatch();
+  const doctors = useSelector((state) => state.doctorsReducer.doctors);
+
+  useEffect(() => {
+    if (doctors.length === 0) {
+      dispatch(getDoctorsData());
+    }
+  }, [dispatch, doctors]);
+
+  // const doctorsList = doctors.map((doctor) => (
+  //   <Link key={doctor.id} to={`/doctor/${doctor.id}`}>
+  //     <DoctorBrief
+  //       id={doctor.id}
+  //       name={doctor.name}
+  //       image={doctor.image}
+  //       speciality={doctor.speciality}
+  //       description={doctor.description}
+  //     />
+  //     <div>Space for social networks</div>
+  //   </Link>
+  // ));
+
   return (
     <div className="container mx-auto">
       <div className="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
@@ -71,15 +47,16 @@ export default function Doctors() {
               <Slider>
                 <div id="slider" className="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700">
                   <Slide index={0}>
-                    <div className="flex flex-shrink-0 relative w-full sm:w-auto">
-                      <img src="https://i.ibb.co/fDngH9G/carosel-1.png" alt="black chair and white table" className="object-cover object-center w-full" />
-                      <div className="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
-                        <h2 className="lg:text-xl leading-4 text-base lg:leading-5 text-white">Catalog 1</h2>
-                        <div className="flex h-full items-end pb-6">
-                          <h3 className="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white">Minimal Interior</h3>
-                        </div>
-                      </div>
-                    </div>
+                    <Link to={`/doctor/${doctors[0].id}`}>
+                      <DoctorBrief
+                        id={doctors[0].id}
+                        name={doctors[0].name}
+                        image={doctors[0].image}
+                        speciality={doctors[0].speciality}
+                        description={doctors[0].description}
+                      />
+                      <div>Space for social networks</div>
+                    </Link>
                   </Slide>
                   <Slide index={1}>
                     <div className="flex flex-shrink-0 relative w-full sm:w-auto">
@@ -523,4 +500,6 @@ export default function Doctors() {
       </div>
     </div>
   );
-}
+};
+
+export default Doctors;
