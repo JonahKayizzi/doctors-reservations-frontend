@@ -39,24 +39,24 @@ describe('DoctorDetails', () => {
             <Route path="/doctors/:id" element={<DoctorDetails />} />
           </Routes>
         </Router>
-      </Provider>
+      </Provider>,
     );
 
     expect(screen.getByAltText('doctor')).toHaveAttribute(
       'src',
-      'https://t4.ftcdn.net/jpg/03/05/41/27/360_F_305412791_XRNiWaFCREjLLpSQfj0e736foBoYXXYv.jpg'
+      'https://t4.ftcdn.net/jpg/03/05/41/27/360_F_305412791_XRNiWaFCREjLLpSQfj0e736foBoYXXYv.jpg',
     );
     expect(screen.getByText('Peter Omaha')).toBeInTheDocument();
     expect(screen.getByText('General Practice')).toBeInTheDocument();
     expect(screen.getByText('05/02/2010')).toBeInTheDocument();
     expect(
       screen.getByText(
-        'Gradutated in the US, have six diplomas in medical genetic, also have a PhD in medicine and a master in medical genetics.'
-      )
+        'Gradutated in the US, have six diplomas in medical genetic, also have a PhD in medicine and a master in medical genetics.',
+      ),
     ).toBeInTheDocument();
     expect(screen.getByText('Book an appointment')).toHaveAttribute(
       'href',
-      '/add_appointment/1'
+      '/add_appointment/1',
     );
   });
 });

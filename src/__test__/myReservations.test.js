@@ -43,7 +43,7 @@ describe('MyReservations', () => {
     const { getByText } = render(
       <Provider store={store}>
         <MyReservations />
-      </Provider>
+      </Provider>,
     );
 
     // Check that the component renders the expected information
