@@ -15,27 +15,52 @@ const MyReservations = () => {
     dispatch(getDoctorsData());
   }, []);
   return (
-    <div>
-      <h1>My Appointments</h1>
-      {reservations.map((reservation) => {
-        const reservedDoctor = doctors.find(
-          (doctor) => doctor.id === reservation.doctor_id,
-        );
-        return (
-          <div key={reservation.id}>
-            <div className="doc-img">
-              <img src={reservedDoctor.image} alt="doctor" />
+    <div className="p-10">
+      <h1 className="font-bold text-4xl m-10 text-lime-600">My appointments</h1>
+      <div className="flex flex-col rounded-3xl">
+        {reservations.map((reservation) => {
+          const reservedDoctor = doctors.find(
+            (doctor) => doctor.id === reservation.doctor_id,
+          );
+          return (
+            <div
+              className="flex flex-col md:flex-row items-center justify-around p-6 border border-lime-200 bg-slate-100"
+              key={reservation.id}
+            >
+              <div className="flex flex-col md:flex-row w-full md:w-1/2">
+                <p className="w-full md:w-1/2 font-bold">
+                  <span className="font-light text-sm">when: </span>
+                  {new Date(reservation.date).toLocaleDateString('en-GB', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </p>
+                <p className="w-full md:w-1/2 font-bold mt-4 md:mt-0">
+                  <span className="font-light text-sm">where: </span>
+                  {reservation.city}
+                </p>
+              </div>
+              <div className="flex flex-col md:flex-row w-full md:w-1/2">
+                <div className="w-1/4 md:w-auto flex justify-center mt-4 md:mt-0">
+                  <img
+                    className="lg:w-1/6 w-2/3 rounded-full border-2 border-lime-400"
+                    src={reservedDoctor.image}
+                    alt="doctor"
+                  />
+                </div>
+                <div className="w-3/4 md:w-auto flex flex-col justify-center pl-4">
+                  <p className="text-right md:text-left text-lg">
+                    {reservedDoctor.name}
+                  </p>
+                  <p className="text-base">{reservedDoctor.speciality}</p>
+                </div>
+              </div>
             </div>
-            <div className="res-detail">
-              <p>{reservation.date}</p>
-              <p>{reservation.city}</p>
-              <p>{reservedDoctor.name}</p>
-              <p>{reservedDoctor.speciality}</p>
-              <p>{reservedDoctor.graduation}</p>
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };

@@ -7,13 +7,13 @@ const initialState = {
 
 const URL = 'http://127.0.0.1:3000/api/v1/users';
 
-export const fetchUser = createAsyncThunk('users/fetchUser', async () => {
+export const fetchUser = createAsyncThunk('users/fetchUser', async (username) => {
   const resp = await fetch(URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ user_name: 'user' }),
+    body: JSON.stringify({ user_name: username }),
   })
     .then((resp) => resp.json())
     .then((result) => result);
