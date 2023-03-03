@@ -122,3 +122,8 @@
 .btn-carousel {
   color: red !important;
 }
+
+.prev-btn:focus, .next-btn:focus {
+  background-color: #98bf10;
+
+}

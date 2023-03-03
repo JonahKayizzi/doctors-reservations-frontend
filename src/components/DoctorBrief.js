@@ -16,7 +16,7 @@ const DoctorBrief = (props) => {
           <img src={image} alt="sitting area" className="h-full" />
           <div className="flex flex-col items-center pt-4 w-full">
             <h2 className="font-black text-xl">{name}</h2>
-            <div className="border-b-2 border-gray-200 border-dotted w-1/5 my-3" />
+            <div className="border-b-2 border-gray-200 border-dotted w-1/5 my-1 md:my-3" />
             <h3 className="text-gray-500">{speciality}</h3>
             <div>
               Space for social network links
