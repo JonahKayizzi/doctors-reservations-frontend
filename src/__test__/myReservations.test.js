@@ -29,7 +29,7 @@ describe('MyReservations', () => {
         reservations: [
           {
             id: 8,
-            date: '2023-03-03',
+            date: '03/03/2023',
             city: 'Kampala',
             user_id: 9,
             doctor_id: 7,
