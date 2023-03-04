@@ -32,17 +32,17 @@ const Doctors = () => {
   ));
 
   return (
-    <div className="flex flex-col h-3/4 self-center">
-      <div className="flex flex-col items-center pt-5 md:pt-0">
+    <div className="flex flex-col self-center">
+      <div className="flex flex-col items-center my-2 md:my-0">
         <h2 className="font-black text-xl md:text-3xl">OUR DOCTORS</h2>
-        <p className=" text-gray-500">Please select a doctor</p>
-        <div className="border-b-2 border-gray-200 border-dotted w-1/5 my-2 md:my-10" />
+        <p className="font-bold text-gray-500">Please select a doctor</p>
+        <div className="border-b-2 border-gray-200 border-dotted w-1/5 my-2 md:my-6" />
       </div>
-      <div className="flex items-center justify-center w-full">
+      <div className="flex items-start justify-center w-full h-3/4">
         {/* Carousel for desktop and large size devices */}
         <CarouselProvider className="lg:block hidden" naturalSlideWidth={100} isIntrinsicHeight totalSlides={Math.ceil(doctors.length / 3) * 3} visibleSlides={3} step={1} infinite>
           <div className="w-full relative flex items-center justify-center">
-            <ButtonBack role="button" aria-label="slide backward" className="prev-btn rounded-r-full p-5 bg-gray-400 absolute z-30 left-0 pl-12 focus:outline-none cursor-pointer" id="prev">
+            <ButtonBack role="button" aria-label="slide backward" className="prev-btn rounded-r-full p-5 bg-gray-300 absolute z-30 left-0 pl-12 focus:outline-none cursor-pointer" id="prev">
               <svg width={8} height={14} viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7 1L1 7L7 13" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -54,7 +54,7 @@ const Doctors = () => {
                 </div>
               </Slider>
             </div>
-            <ButtonNext role="button" aria-label="slide forward" className="prev-btn rounded-l-full p-5 bg-gray-400 absolute z-30 right-0 pr-12 focus:outline-none cursor-pointer" id="next">
+            <ButtonNext role="button" aria-label="slide forward" className="prev-btn rounded-l-full p-5 bg-gray-300 absolute z-30 right-0 pr-12 focus:outline-none cursor-pointer" id="next">
               <svg width={8} height={14} viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L7 7L1 13" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -65,7 +65,7 @@ const Doctors = () => {
         {/* Carousel for tablet and medium size devices */}
         <CarouselProvider className="lg:hidden md:block hidden" naturalSlideWidth={100} isIntrinsicHeight totalSlides={Math.ceil(doctors.length / 2) * 2} visibleSlides={2} step={1} infinite>
           <div className="w-full relative flex items-center justify-center">
-            <ButtonBack role="button" aria-label="slide backward" className="prev-btn rounded-r-full p-5 bg-gray-400 absolute z-30 left-0 pl-12 focus:outline-none cursor-pointer" id="prev">
+            <ButtonBack role="button" aria-label="slide backward" className="prev-btn rounded-r-full p-5 bg-gray-300 absolute z-30 left-0 pl-12 focus:outline-none cursor-pointer" id="prev">
               <svg width={8} height={14} viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7 1L1 7L7 13" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -77,7 +77,7 @@ const Doctors = () => {
                 </div>
               </Slider>
             </div>
-            <ButtonNext role="button" aria-label="slide forward" className="prev-btn rounded-l-full p-5 bg-gray-400 absolute z-30 right-0 pr-12 focus:outline-none cursor-pointer" id="next">
+            <ButtonNext role="button" aria-label="slide forward" className="prev-btn rounded-l-full p-5 bg-gray-300 absolute z-30 right-0 pr-12 focus:outline-none cursor-pointer" id="next">
               <svg width={8} height={14} viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L7 7L1 13" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -88,7 +88,7 @@ const Doctors = () => {
         {/* Carousel for mobile and Small size Devices */}
         <CarouselProvider className="block md:hidden " naturalSlideWidth={100} isIntrinsicHeight totalSlides={doctors.length} visibleSlides={1} step={1} infinite>
           <div className="w-full relative flex items-center justify-center">
-            <ButtonBack role="button" aria-label="slide backward" className="prev-btn rounded-r-full p-5 bg-gray-400 absolute z-30 left-0 pl-12 focus:outline-none cursor-pointer" id="prev">
+            <ButtonBack role="button" aria-label="slide backward" className="prev-btn rounded-r-full p-5 bg-gray-300 absolute z-30 left-0 pl-12 focus:outline-none cursor-pointer" id="prev">
               <svg width={8} height={14} viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7 1L1 7L7 13" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -100,7 +100,7 @@ const Doctors = () => {
                 </div>
               </Slider>
             </div>
-            <ButtonNext role="button" aria-label="slide forward" className="prev-btn rounded-l-full p-5 bg-gray-400 absolute z-30 right-0 pr-12 focus:outline-none cursor-pointer" id="next">
+            <ButtonNext role="button" aria-label="slide forward" className="prev-btn rounded-l-full p-5 bg-gray-300 absolute z-30 right-0 pr-12 focus:outline-none cursor-pointer" id="next">
               <svg width={8} height={14} viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L7 7L1 13" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
               </svg>

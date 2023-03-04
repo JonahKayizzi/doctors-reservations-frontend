@@ -14,33 +14,33 @@ const DoctorBrief = (props) => {
 
   return (
     <div className="flex flex-col relative h-full">
-      <Link to={`/doctor/${id}`}>
-        <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center">
+        <Link to={`/doctor/${id}`} className="md:hover:opacity-80 md:hover:scale-110 md:hover:duration-500">
           <img src={image} alt="sitting area" />
-          <div className="flex flex-col items-center pt-4 w-full gap-1 md:gap-2">
-            <h2 className="font-black text-xl">{name}</h2>
-            <div className="border-b-2 border-gray-200 border-dotted w-1/5" />
-            <h3 className="text-gray-500">{speciality}</h3>
-            <div className="flex justify-between w-1/3 md:w-1/2 mt-3 md:mt-5">
-              <a className="p-1 border-2 rounded-full border-gray-300" href="https://twitter.com/">
-                <TiSocialTwitter className="text-xl fill-gray-300" />
-              </a>
-              <a className="p-1 border-2 rounded-full border-gray-300" href="https://www.facebook.com/">
-                <TiSocialFacebook className="text-xl fill-gray-300" />
-              </a>
-              <a className="p-1 border-2 rounded-full border-gray-300" href="https://www.instagram.com/">
-                <TiSocialInstagram className="text-xl fill-gray-300" />
-              </a>
-            </div>
+        </Link>
+        <div className="flex flex-col items-center pt-4 w-full gap-1 md:gap-2">
+          <h2 className="font-black text-xl">{name.toUpperCase()}</h2>
+          <div className="border-b-2 border-gray-200 border-dotted w-1/5" />
+          <h3 className="text-gray-500">{speciality}</h3>
+          <div className="flex justify-between gap-4 mt-3 md:mt-5">
+            <a className="p-1 border-2 rounded-full border-gray-300" href="https://twitter.com/">
+              <TiSocialTwitter className="fill-gray-300" />
+            </a>
+            <a className="p-1 border-2 rounded-full border-gray-300" href="https://www.facebook.com/">
+              <TiSocialFacebook className="fill-gray-300" />
+            </a>
+            <a className="p-1 border-2 rounded-full border-gray-300" href="https://www.instagram.com/">
+              <TiSocialInstagram className="fill-gray-300" />
+            </a>
           </div>
         </div>
-        {/* Next div used to force carousel to work, do not remove */}
-        <div className="absolute flex flex-col items-center pt-4 w-full">
-          <p className="hidden text-gray-500">
-            { description.substring(0, 2) }
-          </p>
-        </div>
-      </Link>
+      </div>
+      {/* Next div used to force carousel to work, do not remove */}
+      <div className="absolute flex flex-col items-center pt-4 w-full">
+        <p className="hidden text-gray-500">
+          { description.substring(0, 2) }
+        </p>
+      </div>
     </div>
   );
 };
