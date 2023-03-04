@@ -45,6 +45,7 @@
 .text-active-green {
   color: #98bf10;
 }
+
 .bm-burger-button {
   width: 20px;
   height: 20px;
@@ -123,7 +124,7 @@
   color: red !important;
 }
 
-.prev-btn:focus, .next-btn:focus {
+.prev-btn:focus,
+.next-btn:focus {
   background-color: #98bf10;
-
 }
