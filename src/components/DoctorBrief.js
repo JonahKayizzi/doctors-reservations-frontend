@@ -15,7 +15,7 @@ const DoctorBrief = (props) => {
   return (
     <div className="flex flex-col relative h-full">
       <div className="flex flex-col items-center">
-        <Link to={`/doctor/${id}`} className="md:hover:opacity-80 md:hover:scale-110 md:hover:duration-500">
+        <Link to={`/doctor/${id}`} className="hover:opacity-80 hover:scale-110 hover:duration-500">
           <img src={image} alt="sitting area" />
         </Link>
         <div className="flex flex-col items-center pt-4 w-full gap-1 md:gap-2">
