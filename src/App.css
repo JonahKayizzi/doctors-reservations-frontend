@@ -42,6 +42,10 @@
   background-color: #98bf10;
 }
 
+.text-active-green {
+  color: #98bf10;
+}
+
 .bm-burger-button {
   width: 20px;
   height: 20px;
@@ -114,4 +118,21 @@
   height: 48px !important;
   width: 48px !important;
   right: 10px !important;
+}
+
+.btn-carousel {
+  color: red !important;
+}
+
+.prev-btn:focus,
+.next-btn:focus {
+  background-color: #98bf10;
+}
+
+.bg-form {
+  background: url("./assets/doctors-form-bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-color: #afd917;
+  opacity: 0.7;
+  background-blend-mode: multiply;
 }
