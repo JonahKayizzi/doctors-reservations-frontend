@@ -20,9 +20,9 @@ const AddDoctor = () => {
 
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(addDoctor({ ...doctor }));
+    await dispatch(addDoctor({ ...doctor }));
     window.location.href = '/';
   };
 
