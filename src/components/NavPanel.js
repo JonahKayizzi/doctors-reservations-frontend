@@ -15,6 +15,14 @@ const NavPanel = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const burgerstyles = {
+    bmBurgerButton: {
+      top: '12px',
+      left: '20px',
+      width: '40px',
+      height: '40px',
+      position: 'absolute',
+      padding: '1rem',
+    },
     bmCrossButton: {
       top: '5px',
       position: 'absolute',
@@ -41,7 +49,7 @@ const NavPanel = () => {
 
   return (
     <div>
-      <div className="flex p-1 md:hidden w-screen bg-white h-18 items-center justify-center border-b">
+      <div className="flex fixed p-1 md:hidden w-screen bg-white h-18 items-center justify-center border-b">
         <Menu
           isOpen={menuOpen}
           onStateChange={(state) => handleStateChange(state)}
