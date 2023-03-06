@@ -1,6 +1,8 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import {
   CarouselProvider, Slider, Slide, ButtonBack, ButtonNext,
 } from 'pure-react-carousel';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -33,7 +35,7 @@ const Doctors = () => {
 
   return (
     <div className="flex flex-col self-center">
-      <div className="flex flex-col items-center my-2 md:my-0">
+      <div className="flex flex-col items-center my-2 md:my-0 pt-16">
         <h2 className="font-black text-xl md:text-3xl">OUR DOCTORS</h2>
         <p className="font-bold text-gray-500">Please select a doctor</p>
         <div className="border-b-2 border-gray-200 border-dotted w-1/5 my-2 md:my-6" />
@@ -86,7 +88,7 @@ const Doctors = () => {
         </CarouselProvider>
 
         {/* Carousel for mobile and Small size Devices */}
-        <CarouselProvider className="block md:hidden " naturalSlideWidth={100} isIntrinsicHeight totalSlides={doctors.length} visibleSlides={1} step={1} infinite>
+        <CarouselProvider className="block md:hidden" naturalSlideWidth={100} isIntrinsicHeight totalSlides={doctors.length} visibleSlides={1} step={1} infinite>
           <div className="w-full relative flex items-center justify-center">
             <ButtonBack role="button" aria-label="slide backward" className="prev-btn rounded-r-full p-5 bg-gray-300 absolute z-30 left-0 pl-12 focus:outline-none cursor-pointer" id="prev">
               <svg width={8} height={14} viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">

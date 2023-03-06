@@ -12,9 +12,9 @@ const DeleteDoctor = () => {
     dispatch(deleteDoctor(doctor));
   };
   return (
-    <div className="h-full md:w-full flex flex-col items-center bg-lime-500 text-white">
-      <div className="w-full pl-0.5 pt-8 md:pt-9 md:pl-0 bg-lime-500">
-        <h1 className="text-left pb-3 font-bold text-2xl">Delete Doctors:</h1>
+    <div className="h-full md:w-full flex flex-col items-center bg-lime-500 text-white ">
+      <div className="w-full pl-0.5 md:pl-0 bg-lime-500 pt-16 md:pt-9">
+        <h1 className="text-left pb-3 font-bold text-2xl pt-2">Delete Doctors:</h1>
         <ul className="p-1">
           {doctors.map((doctor) => (
             <li className="w-full flex justify-between items-center font-bold p-0.5 py-1 md:py-2.5 border-b-2 border-lime-900 last:border-b-0" key={doctor.id}>
