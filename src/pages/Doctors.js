@@ -40,7 +40,7 @@ const Doctors = () => {
       </div>
       <div className="flex items-start justify-center w-full h-3/4">
         {/* Carousel for desktop and large size devices */}
-        <CarouselProvider className="lg:block hidden" naturalSlideWidth={100} isIntrinsicHeight totalSlides={Math.ceil(doctors.length / 3) * 3} visibleSlides={3} step={1} infinite>
+        <CarouselProvider className="lg:block hidden" naturalSlideWidth={100} isIntrinsicHeight totalSlides={doctors.length} visibleSlides={3} step={1} infinite>
           <div className="w-full relative flex items-center justify-center">
             <ButtonBack role="button" aria-label="slide backward" className="prev-btn rounded-r-full p-5 bg-gray-300 absolute z-30 left-0 pl-12 focus:outline-none cursor-pointer" id="prev">
               <svg width={8} height={14} viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,7 +63,7 @@ const Doctors = () => {
         </CarouselProvider>
 
         {/* Carousel for tablet and medium size devices */}
-        <CarouselProvider className="lg:hidden md:block hidden" naturalSlideWidth={100} isIntrinsicHeight totalSlides={Math.ceil(doctors.length / 2) * 2} visibleSlides={2} step={1} infinite>
+        <CarouselProvider className="lg:hidden md:block hidden" naturalSlideWidth={100} isIntrinsicHeight totalSlides={doctors.length} visibleSlides={2} step={1} infinite>
           <div className="w-full relative flex items-center justify-center">
             <ButtonBack role="button" aria-label="slide backward" className="prev-btn rounded-r-full p-5 bg-gray-300 absolute z-30 left-0 pl-12 focus:outline-none cursor-pointer" id="prev">
               <svg width={8} height={14} viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
