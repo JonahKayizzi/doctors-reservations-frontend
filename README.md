@@ -2,7 +2,7 @@
 
 
 <div align="center">
-  <img src="./assets/doctors Icon.png" alt="logo" width="140"  height="auto" />
+  <img src="./src/assets/doctors Icon.png" alt="logo" width="140"  height="auto" />
   <br/>
 
   <h3><b>Doctors Reservations Front end</b></h3>
