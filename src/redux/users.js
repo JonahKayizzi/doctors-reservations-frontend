@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-// eslint-disable-next-line import/no-extraneous-dependencies
 
 const initialState = {
   users: null,
@@ -7,18 +6,29 @@ const initialState = {
 
 const URL = 'http://127.0.0.1:3000/api/v1/users';
 
-export const fetchUser = createAsyncThunk('users/fetchUser', async (username) => {
-  const resp = await fetch(URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ user_name: username }),
-  })
-    .then((resp) => resp.json())
-    .then((result) => result);
-  return resp;
-});
+export const fetchUser = createAsyncThunk(
+  'users/fetchUser',
+  async (username) => {
+    const resp = await fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user_name: username }),
+    })
+      .then((resp) => resp.json())
+      .then((result) => result);
+    return resp;
+  }
+);
+
+export const logout = () => {
+  sessionStorage.removeItem('user');
+  sessionStorage.removeItem('username');
+  return {
+    type: 'LOGOUT',
+  };
+};
 
 export const usersSlice = createSlice({
   name: 'user',
@@ -29,6 +39,7 @@ export const usersSlice = createSlice({
       // eslint-disable-next-line no-param-reassign
       state.users = action.payload.id;
       sessionStorage.setItem('user', action.payload.id);
+      sessionStorage.setItem('username', action.payload.user_name);
     },
     [fetchUser.rejected]: (state) => {
       // eslint-disable-next-line no-param-reassign
