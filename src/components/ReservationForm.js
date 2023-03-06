@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { getDoctorsData } from '../redux/doctors/doctorsSlice';
-import { addReservation } from '../redux/reservations/reservationsSlice';
+import { addReservation, getReservations } from '../redux/reservations/reservationsSlice';
 
 const cities = [
   { id: 1, name: 'New York City' },
@@ -21,13 +21,14 @@ const cities = [
 const ReservationForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const userId = JSON.parse(sessionStorage.getItem('user'));
   const { id: doctorId } = useParams();
   const doctors = useSelector((state) => state.doctorsReducer.doctors);
   const currentDoctor = doctors.filter((doctor) => doctor.id === parseInt(doctorId, 10))[0];
 
   const [reservation, setReservation] = useState({
     doctor_id: doctorId,
-    user_id: JSON.parse(sessionStorage.getItem('user')),
+    user_id: userId,
   });
 
   useEffect(() => {
@@ -44,6 +45,8 @@ const ReservationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addReservation(reservation));
+    dispatch(getDoctorsData());
+    dispatch(getReservations(userId));
     navigate('/appointments');
   };
 
