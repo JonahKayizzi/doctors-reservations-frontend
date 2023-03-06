@@ -1,18 +1,8 @@
 import React from 'react';
-
 import ReservationForm from '../components/ReservationForm';
-import doctorsDefault from '../assets/doctors-form-bg.jpg';
-
-const backgroundStyle = {
-  background: `url(${doctorsDefault}) no-repeat center center fixed`,
-  backgroundSize: 'cover',
-  backgroundColor: '#afd917',
-  opacity: '0.7',
-  backgroundBlendMode: 'multiply',
-};
 
 const AddReservation = () => (
-  <div className="h-full flex flex-col items-center" style={backgroundStyle}>
+  <div className="bg-form h-full flex flex-col items-center">
     <div className="w-3/4 h-full flex flex-col items-center justify-center text-white">
       <h2 className="text-xl font-bold">BOOK A DOCTOR APPOINTMENT</h2>
       <div className="w-3/4 border-b-2 border-white-100 my-4" />

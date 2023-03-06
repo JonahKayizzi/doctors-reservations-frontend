@@ -128,3 +128,11 @@
 .next-btn:focus {
   background-color: #98bf10;
 }
+
+.bg-form {
+  background: url("./assets/doctors-form-bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-color: #afd917;
+  opacity: 0.7;
+  background-blend-mode: multiply;
+}
