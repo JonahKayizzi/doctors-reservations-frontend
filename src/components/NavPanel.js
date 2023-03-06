@@ -14,8 +14,7 @@ import logo from '../assets/logo.png';
 import cutdown from '../assets/logo-cutdown.png';
 
 const NavPanel = () => {
-  const inactive =
-    'h-14 text-sm md:text-lg md:h-auto font-semibold md:font-bold py-2 px-1 flex items-center justify-center hover:bg-lime-600 hover:text-white';
+  const inactive = 'h-14 text-sm md:text-lg md:h-auto font-semibold md:font-bold py-2 px-1 flex items-center justify-center hover:bg-lime-600 hover:text-white';
   const activeClassName = `text-white active-green ${inactive}`;
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -35,54 +34,42 @@ const NavPanel = () => {
           onStateChange={(state) => handleStateChange(state)}
         >
           <NavLink
-            className={({ isActive }) =>
-              isActive ? activeClassName : inactive
-            }
+            className={({ isActive }) => (isActive ? activeClassName : inactive)}
             to="/"
             onClick={closeMenu}
           >
             Doctors
           </NavLink>
           <NavLink
-            className={({ isActive }) =>
-              isActive ? activeClassName : inactive
-            }
+            className={({ isActive }) => (isActive ? activeClassName : inactive)}
             to="/add_appointment"
             onClick={closeMenu}
           >
             Make Appointment
           </NavLink>
           <NavLink
-            className={({ isActive }) =>
-              isActive ? activeClassName : inactive
-            }
+            className={({ isActive }) => (isActive ? activeClassName : inactive)}
             to="/appointments"
             onClick={closeMenu}
           >
             My Appointments
           </NavLink>
           <NavLink
-            className={({ isActive }) =>
-              isActive ? activeClassName : inactive
-            }
+            className={({ isActive }) => (isActive ? activeClassName : inactive)}
             to="/add_doctor"
             onClick={closeMenu}
           >
             Add Doctor
           </NavLink>
           <NavLink
-            className={({ isActive }) =>
-              isActive ? activeClassName : inactive
-            }
+            className={({ isActive }) => (isActive ? activeClassName : inactive)}
             to="/delete_doctor"
             onClick={closeMenu}
           >
             Remove Doctor
           </NavLink>
           <NavLink
-            className={({ isActive }) =>
-              isActive ? activeClassName : inactive
-            }
+            className={({ isActive }) => (isActive ? activeClassName : inactive)}
             to="/logout"
           >
             <p className="text-xs text-bold text-center">
@@ -103,41 +90,31 @@ const NavPanel = () => {
         </div>
         <div className="flex flex-col justify-center w-full">
           <NavLink
-            className={({ isActive }) =>
-              isActive ? activeClassName : inactive
-            }
+            className={({ isActive }) => (isActive ? activeClassName : inactive)}
             to="/"
           >
             Doctors
           </NavLink>
           <NavLink
-            className={({ isActive }) =>
-              isActive ? activeClassName : inactive
-            }
+            className={({ isActive }) => (isActive ? activeClassName : inactive)}
             to="/add_appointment"
           >
             Make Appointment
           </NavLink>
           <NavLink
-            className={({ isActive }) =>
-              isActive ? activeClassName : inactive
-            }
+            className={({ isActive }) => (isActive ? activeClassName : inactive)}
             to="/appointments"
           >
             My Appointments
           </NavLink>
           <NavLink
-            className={({ isActive }) =>
-              isActive ? activeClassName : inactive
-            }
+            className={({ isActive }) => (isActive ? activeClassName : inactive)}
             to="/add_doctor"
           >
             Add Doctor
           </NavLink>
           <NavLink
-            className={({ isActive }) =>
-              isActive ? activeClassName : inactive
-            }
+            className={({ isActive }) => (isActive ? activeClassName : inactive)}
             to="/delete_doctor"
           >
             Remove Doctor
