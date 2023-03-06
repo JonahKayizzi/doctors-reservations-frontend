@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDoctorsData, deleteDoctor } from '../redux/doctors/doctorsSlice';
+import { deleteReservations } from '../redux/reservations/reservationsSlice';
 
 const DeleteDoctor = () => {
   const dispatch = useDispatch();
@@ -9,6 +10,7 @@ const DeleteDoctor = () => {
     dispatch(getDoctorsData());
   }, []);
   const handleClick = (doctor) => {
+    dispatch(deleteReservations(doctor));
     dispatch(deleteDoctor(doctor));
   };
   return (
