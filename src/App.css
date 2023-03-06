@@ -42,10 +42,12 @@
   background-color: #98bf10;
 }
 
+.text-active-green {
+  color: #98bf10;
+}
+
 .bm-burger-button {
-  width: 20px;
-  height: 20px;
-  top: 20px;
+  top: 15px;
   left: 20px;
   position: absolute;
   padding: 1rem;
@@ -69,8 +71,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh !important;
-  width: 100vw !important;
+  height: 100vh;
+  width: 100vw;
 }
 
 .bm-item-list {
@@ -100,18 +102,23 @@
 }
 
 .bm-cross {
-  position: relative;
-  background: white;
   border-radius: 2px;
-  height: 34px !important;
-  width: 5px !important;
-  right: 7px !important;
+  background: white;
 }
 
-.bm-cross-button {
-  top: 5px !important;
-  position: absolute !important;
-  height: 48px !important;
-  width: 48px !important;
-  right: 10px !important;
+.btn-carousel {
+  color: red !important;
+}
+
+.prev-btn:focus,
+.next-btn:focus {
+  background-color: #98bf10;
+}
+
+.bg-form {
+  background: url("./assets/doctors-form-bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-color: #afd917;
+  opacity: 0.7;
+  background-blend-mode: multiply;
 }

@@ -50,24 +50,21 @@ const ReservationForm = () => {
   };
 
   return (
-    <div className="w-3/4 flex flex-col items-center">
+    <div className="w-3/4 flex flex-col py-4 items-center">
       { doctorId !== undefined && (
-        <div>
+        <div className="flex flex-col items-center pb-4 gap-2">
           <p>
-            Book an appointment with Dr.
-            {' '}
-            {currentDoctor.name}
+            {'Book an appointment with M.D. '}
+            <strong className="underline">{currentDoctor.name}</strong>
           </p>
-          <img src={currentDoctor.image} alt="doctor" style={{ width: '150px' }} />
-          <br />
-          <br />
+          <img src={currentDoctor.image} alt="doctor" className="w-1/2 border-8 rounded-lg" />
         </div>
       )}
 
-      <form className="flex flex-col" onSubmit={handleSubmit}>
+      <form className="w-5/8 flex flex-col gap-2 lg:flex-row" onSubmit={handleSubmit}>
 
-        <select name="city" onChange={handleChange} required>
-          <option disabled selected value> -- select a city -- </option>
+        <select name="city" className="active-green border-2 border-white-200 rounded-3xl px-3 py-1 lg:w-3/8 text-xs" onChange={handleChange} required>
+          <option disabled selected value> Choose a city </option>
           {cities.map((city) => (
             <option key={city.id} value={city.name}>
               {city.name}
@@ -75,11 +72,11 @@ const ReservationForm = () => {
           ))}
         </select>
 
-        <input type="date" name="date" onChange={handleChange} required />
+        <input type="date" name="date" className="active-green border-2 border-white-200 rounded-3xl px-3 py-1 lg:w-3/8 text-xs" onChange={handleChange} required />
 
         { doctorId === undefined && (
-          <select name="doctor_id" onChange={handleChange} required>
-            <option disabled selected value> -- select a doctor -- </option>
+          <select name="doctor_id" className="active-green border-2 border-white-200 rounded-3xl px-3 py-1 lg:w-3/8 text-xs" onChange={handleChange} required>
+            <option disabled selected value> Choose a doctor </option>
             {doctors.map((doctor) => (
               <option key={doctor.id} value={doctor.id}>
                 {doctor.name}
@@ -88,7 +85,7 @@ const ReservationForm = () => {
           </select>
         )}
 
-        <button type="submit">Book Now</button>
+        <button type="submit" className="bg-white text-active-green border-2 border-white-200 rounded-3xl px-3 py-1 font-medium lg:w-1/4 text-xs">Book Now</button>
       </form>
     </div>
   );
