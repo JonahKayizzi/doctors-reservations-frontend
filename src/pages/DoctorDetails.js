@@ -8,7 +8,7 @@ const DoctorDetails = () => {
   const thisDoctor = doctors.filter((doctor) => doctor.id === parseInt(id, 10));
 
   return (
-    <div className="flex flex-col lg:flex-row p-10 justify-between">
+    <div className="flex md:w-3/4 flex-col lg:flex-row p-10 py-20 justify-between">
       <div className="flex items-center w-full lg:w-1/2">
         <img src={thisDoctor[0].image} alt="doctor" />
       </div>

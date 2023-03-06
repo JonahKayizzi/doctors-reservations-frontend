@@ -11,7 +11,7 @@ const persistConfig = {
   storage,
 };
 
-const reducer = combineReducers({
+export const reducer = combineReducers({
   users: usersSlice.reducer,
   doctorsReducer: doctorsSlice.reducer,
   reservationsReducer: reservationsSlice.reducer,

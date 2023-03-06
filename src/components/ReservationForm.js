@@ -31,10 +31,8 @@ const ReservationForm = () => {
   });
 
   useEffect(() => {
-    if (doctors.length === 0) {
-      dispatch(getDoctorsData());
-    }
-  }, [dispatch, doctors]);
+    dispatch(getDoctorsData());
+  }, []);
 
   const handleChange = (e) => {
     setReservation({
