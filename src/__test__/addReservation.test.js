@@ -28,7 +28,7 @@ const store = mockStore({
 const route = '/';
 window.history.pushState({}, 'Doctor Details', route);
 
-describe('Doctors page', () => {
+describe('Make Appointments page', () => {
   beforeEach(() => {
     render(
       <Provider store={store}>
@@ -40,16 +40,11 @@ describe('Doctors page', () => {
   });
 
   test('renders correctly', () => {
-    const doctorImg = screen.getAllByAltText(/doctor pic/i)[0];
-    const doctorName = screen.getAllByText(/Peter Omaha/i)[0];
-    const doctorSpeciality = screen.getAllByText(/General Practice/i)[0];
+    const makeAppointment = screen.getByRole('link', { name: 'Make Appointment' });
+    fireEvent.click(makeAppointment);
 
-    expect(doctorImg).toHaveAttribute(
-      'src',
-      'https://t4.ftcdn.net/jpg/03/05/41/27/360_F_305412791_XRNiWaFCREjLLpSQfj0e736foBoYXXYv.jpg',
-    );
-    expect(doctorName).toBeInTheDocument();
-    expect(doctorSpeciality).toBeInTheDocument();
+    const formTitle = screen.getByText(/BOOK A DOCTOR APPOINTMENT/i);
+    expect(formTitle).toBeInTheDocument();
   });
 
   test('redirects user to doctorDetails when doctors image is clicked', () => {

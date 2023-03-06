@@ -65,7 +65,7 @@ const ReservationForm = () => {
       <form className="w-5/8 flex flex-col gap-2 lg:flex-row" onSubmit={handleSubmit}>
 
         <select name="city" className="active-green border-2 border-white-200 rounded-3xl px-3 py-1 lg:w-3/8 text-xs" onChange={handleChange} required>
-          <option disabled value> Choose a city </option>
+          <option selected disabled value> Choose a city </option>
           {cities.map((city) => (
             <option key={city.id} value={city.name}>
               {city.name}
@@ -77,7 +77,7 @@ const ReservationForm = () => {
 
         { doctorId === undefined && (
           <select name="doctor_id" className="active-green border-2 border-white-200 rounded-3xl px-3 py-1 lg:w-3/8 text-xs" onChange={handleChange} required>
-            <option disabled value> Choose a doctor </option>
+            <option selected disabled value> Choose a doctor </option>
             {doctors.map((doctor) => (
               <option key={doctor.id} value={doctor.id}>
                 {doctor.name}
