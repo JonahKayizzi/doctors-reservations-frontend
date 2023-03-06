@@ -27,7 +27,7 @@ const AddDoctor = () => {
   };
 
   return (
-    <div className="w-full h-full md:w-3/4 flex flex-col items-center md:justify-center pt-20 md:p-0 bg-lime-400 ">
+    <div className="w-full h-full flex flex-col items-center md:justify-center pt-20 md:p-0 bg-lime-400 ">
       <div className="flex flex-row justify-center bg-white w-80 h-96 p-3 rounded ">
         <form className="flex flex-col" onSubmit={handleSubmit}>
           <input type="text" name="name" placeholder="Doctor Name" onChange={handleChange} required className="border rounded-lg py-2 px-3 mb-4" />
