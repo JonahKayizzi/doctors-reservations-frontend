@@ -15,10 +15,8 @@ const Doctors = () => {
   const doctors = useSelector((state) => state.doctorsReducer.doctors);
 
   useEffect(() => {
-    if (doctors.length === 0) {
-      dispatch(getDoctorsData());
-    }
-  }, [dispatch, doctors]);
+    dispatch(getDoctorsData());
+  }, []);
 
   const doctorsList = doctors.map((doctor, index) => (
     // eslint-disable-next-line
@@ -34,7 +32,7 @@ const Doctors = () => {
   ));
 
   return (
-    <div className="flex flex-col self-center">
+    <div className="flex flex-col w-full h-full self-center">
       <div className="flex flex-col items-center my-2 md:my-0 pt-16">
         <h2 className="font-black text-xl md:text-3xl">OUR DOCTORS</h2>
         <p className="font-bold text-gray-500">Please select a doctor</p>
