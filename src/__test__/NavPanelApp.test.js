@@ -7,24 +7,24 @@ import renderWithProviders from './utils/utils-for-tests';
 describe('renderNavPanel', () => {
   it('renders the nav panel', () => {
     renderWithProviders(<App />);
-    expect(screen.getByText('Doctors')).toBeInTheDocument();
-    expect(screen.getByText('Make Appointment')).toBeInTheDocument();
-    expect(screen.getByText('My Appointments')).toBeInTheDocument();
-    expect(screen.getByText('Add Doctor')).toBeInTheDocument();
-    expect(screen.getByText('Remove Doctor')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Doctors' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Make Appointment' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'My Appointments' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Add Doctor' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Remove Doctor' })).toBeInTheDocument();
   });
 
   it('sends to the correct page on click', () => {
     renderWithProviders(<App />);
-    fireEvent.click(screen.getByText('Doctors'));
-    expect(screen.getByText('Doctors')).toBeInTheDocument();
-    fireEvent.click(screen.getByText('Make Appointment'));
-    expect(screen.getByRole('button', { name: /Make Appointment/i })).toBeInTheDocument();
-    fireEvent.click(screen.getByText('My Appointments'));
+    fireEvent.click(screen.getByRole('link', { name: 'Doctors' }));
+    expect(screen.getByText('Check out between the most selected list of doctors around the country')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('link', { name: 'Make Appointment' }));
+    expect(screen.getByRole('button', { name: 'Book Now' })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('link', { name: 'My Appointments' }));
     expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
-    fireEvent.click(screen.getByText('Add Doctor'));
-    expect(screen.getByRole('button', { name: /Add New Doctor/i })).toBeInTheDocument();
-    fireEvent.click(screen.getByText('Remove Doctor'));
+    fireEvent.click(screen.getByRole('link', { name: 'Add Doctor' }));
+    expect(screen.getByRole('button', { name: 'Add New Doctor' })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('link', { name: 'Remove Doctor' }));
     expect(screen.getByText('Delete Doctors:')).toBeInTheDocument();
   });
 });
