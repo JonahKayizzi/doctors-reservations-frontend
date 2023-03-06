@@ -14,6 +14,23 @@ const NavPanel = () => {
   const activeClassName = `text-white active-green ${inactive}`;
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const burgerstyles = {
+    bmCrossButton: {
+      top: '5px',
+      position: 'absolute',
+      height: '48px',
+      width: '48px',
+      right: '12px',
+    },
+    bmCross: {
+      display: 'inline-block',
+      height: '40px',
+      width: '5px',
+      top: '-2px',
+      right: '7px',
+    },
+  };
+
   const handleStateChange = (state) => {
     setMenuOpen(state.isOpen);
   };
@@ -24,10 +41,12 @@ const NavPanel = () => {
 
   return (
     <div>
-      <div className="flex p-1 md:hidden w-screen bg-white h-20 items-center justify-center border-b">
+      <div className="flex p-1 md:hidden w-screen bg-white h-18 items-center justify-center border-b">
         <Menu
           isOpen={menuOpen}
           onStateChange={(state) => handleStateChange(state)}
+          width="100%"
+          styles={burgerstyles}
         >
           <NavLink
             className={({ isActive }) => (isActive ? activeClassName : inactive)}
