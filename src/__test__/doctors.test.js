@@ -1,10 +1,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+
 import Doctors from '../pages/Doctors';
+import DoctorDetails from '../pages/DoctorDetails';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -27,22 +29,23 @@ const store = mockStore({
 const route = '/';
 window.history.pushState({}, 'Doctor Details', route);
 
-describe('Doctors', () => {
+describe('Doctors page', () => {
   beforeEach(() => {
     render(
       <Provider store={store}>
         <Router>
           <Routes>
             <Route path="/" element={<Doctors />} />
+            <Route path="/doctor/:id" element={<DoctorDetails />} />
           </Routes>
         </Router>
       </Provider>,
     );
   });
 
-  test('renders doctor details correctly', () => {
+  test('renders correctly', () => {
     const doctorImg = screen.getAllByAltText(/doctor pic/i)[0];
-    const doctorName = screen.getAllByAltText(/doctor pic/i)[0];
+    const doctorName = screen.getAllByText(/Peter Omaha/i)[0];
     const doctorSpeciality = screen.getAllByText(/General Practice/i)[0];
 
     expect(doctorImg).toHaveAttribute(
@@ -51,5 +54,13 @@ describe('Doctors', () => {
     );
     expect(doctorName).toBeInTheDocument();
     expect(doctorSpeciality).toBeInTheDocument();
+  });
+
+  test('redirects user to doctorDetails when doctors image is clicked', () => {
+    const doctorImg = screen.getAllByAltText(/doctor pic/i)[0];
+    fireEvent.click(doctorImg);
+
+    const doctorDescription = screen.getAllByText(/Gradutated in the US, have six diplomas in medical genetic,/i)[0];
+    expect(doctorDescription).toBeInTheDocument();
   });
 });
