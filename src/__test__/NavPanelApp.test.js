@@ -17,7 +17,7 @@ describe('renderNavPanel', () => {
   it('sends to the correct page on click', () => {
     renderWithProviders(<App />);
     fireEvent.click(screen.getByRole('link', { name: 'Doctors' }));
-    expect(screen.getByText('Check out between the most selected list of doctors around the country')).toBeInTheDocument();
+    expect(screen.getByText('OUR DOCTORS')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'Make Appointment' }));
     expect(screen.getByRole('button', { name: 'Book Now' })).toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'My Appointments' }));
