@@ -24,6 +24,17 @@ const reservationsSlice = createSlice({
     loading: false,
     reservations: [],
   },
+  reducers: {
+    deleteReservations(state, action) {
+      const newState = state.reservations.filter((reservation) => (
+        reservation.doctor_id !== action.payload
+      ));
+      return {
+        ...state,
+        reservations: newState,
+      };
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getReservations.pending, (state) => ({
       ...state,
@@ -58,3 +69,4 @@ const reservationsSlice = createSlice({
 
 export default reservationsSlice;
 export { getReservations, addReservation };
+export const { deleteReservations } = reservationsSlice.actions;

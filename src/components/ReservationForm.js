@@ -20,9 +20,9 @@ const cities = [
 
 const ReservationForm = () => {
   const dispatch = useDispatch();
-  const doctors = useSelector((state) => state.doctorsReducer.doctors);
   const navigate = useNavigate();
   const { id: doctorId } = useParams();
+  const doctors = useSelector((state) => state.doctorsReducer.doctors);
   const currentDoctor = doctors.filter((doctor) => doctor.id === parseInt(doctorId, 10))[0];
 
   const [reservation, setReservation] = useState({
@@ -31,10 +31,8 @@ const ReservationForm = () => {
   });
 
   useEffect(() => {
-    if (doctors.length === 0) {
-      dispatch(getDoctorsData());
-    }
-  }, [dispatch, doctors]);
+    dispatch(getDoctorsData());
+  }, []);
 
   const handleChange = (e) => {
     setReservation({
