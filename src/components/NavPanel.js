@@ -3,14 +3,19 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import {
-  TiSocialGooglePlus, TiSocialTwitter, TiSocialFacebook, TiSocialVimeo, TiSocialPinterest,
+  TiSocialGooglePlus,
+  TiSocialTwitter,
+  TiSocialFacebook,
+  TiSocialVimeo,
+  TiSocialPinterest,
 } from 'react-icons/ti';
 import { slide as Menu } from 'react-burger-menu';
 import logo from '../assets/logo.png';
 import cutdown from '../assets/logo-cutdown.png';
 
 const NavPanel = () => {
-  const inactive = 'h-14 text-sm md:text-lg md:h-auto font-semibold md:font-bold py-2 px-1 flex items-center justify-center hover:bg-lime-600 hover:text-white';
+  const inactive =
+    'h-14 text-sm md:text-lg md:h-auto font-semibold md:font-bold py-2 px-1 flex items-center justify-center hover:bg-lime-600 hover:text-white';
   const activeClassName = `text-white active-green ${inactive}`;
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -30,42 +35,67 @@ const NavPanel = () => {
           onStateChange={(state) => handleStateChange(state)}
         >
           <NavLink
-            className={({ isActive }) => (isActive ? activeClassName : inactive)}
+            className={({ isActive }) =>
+              isActive ? activeClassName : inactive
+            }
             to="/"
             onClick={closeMenu}
           >
             Doctors
           </NavLink>
           <NavLink
-            className={({ isActive }) => (isActive ? activeClassName : inactive)}
+            className={({ isActive }) =>
+              isActive ? activeClassName : inactive
+            }
             to="/add_appointment"
             onClick={closeMenu}
           >
             Make Appointment
           </NavLink>
           <NavLink
-            className={({ isActive }) => (isActive ? activeClassName : inactive)}
+            className={({ isActive }) =>
+              isActive ? activeClassName : inactive
+            }
             to="/appointments"
             onClick={closeMenu}
           >
             My Appointments
           </NavLink>
           <NavLink
-            className={({ isActive }) => (isActive ? activeClassName : inactive)}
+            className={({ isActive }) =>
+              isActive ? activeClassName : inactive
+            }
             to="/add_doctor"
             onClick={closeMenu}
           >
             Add Doctor
           </NavLink>
           <NavLink
-            className={({ isActive }) => (isActive ? activeClassName : inactive)}
+            className={({ isActive }) =>
+              isActive ? activeClassName : inactive
+            }
             to="/delete_doctor"
             onClick={closeMenu}
           >
             Remove Doctor
           </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? activeClassName : inactive
+            }
+            to="/logout"
+          >
+            <p className="text-xs text-bold text-center">
+              {sessionStorage.getItem('username')}
+            </p>
+            Logout
+          </NavLink>
         </Menu>
-        <img src={cutdown} alt="logo" className="w-30 h-14 md:h-full self-center" />
+        <img
+          src={cutdown}
+          alt="logo"
+          className="w-30 h-14 md:h-full self-center"
+        />
       </div>
       <div className="hidden md:flex flex-col h-full w-1/4 md:w-48 border-r-4 border-lime-500">
         <div className="h-1/8 w-full p-1">
@@ -73,31 +103,41 @@ const NavPanel = () => {
         </div>
         <div className="flex flex-col justify-center w-full">
           <NavLink
-            className={({ isActive }) => (isActive ? activeClassName : inactive)}
+            className={({ isActive }) =>
+              isActive ? activeClassName : inactive
+            }
             to="/"
           >
             Doctors
           </NavLink>
           <NavLink
-            className={({ isActive }) => (isActive ? activeClassName : inactive)}
+            className={({ isActive }) =>
+              isActive ? activeClassName : inactive
+            }
             to="/add_appointment"
           >
             Make Appointment
           </NavLink>
           <NavLink
-            className={({ isActive }) => (isActive ? activeClassName : inactive)}
+            className={({ isActive }) =>
+              isActive ? activeClassName : inactive
+            }
             to="/appointments"
           >
             My Appointments
           </NavLink>
           <NavLink
-            className={({ isActive }) => (isActive ? activeClassName : inactive)}
+            className={({ isActive }) =>
+              isActive ? activeClassName : inactive
+            }
             to="/add_doctor"
           >
             Add Doctor
           </NavLink>
           <NavLink
-            className={({ isActive }) => (isActive ? activeClassName : inactive)}
+            className={({ isActive }) =>
+              isActive ? activeClassName : inactive
+            }
             to="/delete_doctor"
           >
             Remove Doctor
@@ -120,6 +160,17 @@ const NavPanel = () => {
             <TiSocialPinterest className="text-2xl" />
           </a>
         </div>
+        <div>
+          <p className="text-s text-bold text-center">
+            {sessionStorage.getItem('username')}
+          </p>
+        </div>
+        <NavLink
+          className={({ isActive }) => (isActive ? activeClassName : inactive)}
+          to="/logout"
+        >
+          Logout
+        </NavLink>
       </div>
     </div>
   );
