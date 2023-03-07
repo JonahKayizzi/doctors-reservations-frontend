@@ -73,7 +73,7 @@ const ReservationForm = () => {
           ))}
         </select>
 
-        <input type="date" name="date" className="active-green border-2 border-white-200 rounded-3xl px-3 py-1 lg:w-3/8 text-xs" onChange={handleChange} required />
+        <input aria-label="date-input" type="date" name="date" className="active-green border-2 border-white-200 rounded-3xl px-3 py-1 lg:w-3/8 text-xs" onChange={handleChange} required />
 
         { doctorId === undefined && (
           <select name="doctor_id" className="active-green border-2 border-white-200 rounded-3xl px-3 py-1 lg:w-3/8 text-xs" onChange={handleChange} required>

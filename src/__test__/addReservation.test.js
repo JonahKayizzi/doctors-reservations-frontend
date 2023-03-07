@@ -24,6 +24,17 @@ const store = mockStore({
       },
     ],
   },
+  reservationsReducer: {
+    reservations: [
+      {
+        id: 1,
+        date: '2023-05-16',
+        city: 'Atlanta',
+        user_id: 1,
+        doctor_id: 1,
+      },
+    ],
+  },
 });
 const route = '/';
 window.history.pushState({}, 'Doctor Details', route);
@@ -44,14 +55,33 @@ describe('Make Appointments page', () => {
     fireEvent.click(makeAppointment);
 
     const formTitle = screen.getByText(/BOOK A DOCTOR APPOINTMENT/i);
+    const cityField = screen.getByText(/Choose a city/i);
+    const dateField = screen.getByLabelText(/date-input/i);
+    const doctorField = screen.getByText(/Choose a doctor/i);
+    const submitBtn = screen.getByText(/Book Now/i);
     expect(formTitle).toBeInTheDocument();
+    expect(cityField).toBeInTheDocument();
+    expect(dateField).toBeInTheDocument();
+    expect(doctorField).toBeInTheDocument();
+    expect(submitBtn).toBeInTheDocument();
   });
 
-  test('redirects user to doctorDetails when doctors image is clicked', () => {
-    const doctorImg = screen.getAllByAltText(/doctor pic/i)[0];
-    fireEvent.click(doctorImg);
+  test('creates a new appointment correctly', () => {
+    const makeAppointment = screen.getByRole('link', { name: 'Make Appointment' });
+    fireEvent.click(makeAppointment);
 
-    const doctorDescription = screen.getAllByText(/Gradutated in the US, have six diplomas in medical genetic,/i)[0];
-    expect(doctorDescription).toBeInTheDocument();
+    const cityField = screen.getByText(/Choose a city/i);
+    const dateField = screen.getByLabelText(/date-input/i);
+    const doctorField = screen.getByText(/Choose a doctor/i);
+    const submitBtn = screen.getByText(/Book Now/i);
+    fireEvent.change(cityField, { target: { value: 'Atlanta' } });
+    fireEvent.change(dateField, { target: { value: '2023-05-16' } });
+    fireEvent.change(doctorField, { target: { value: 'Peter Omaha' } });
+    fireEvent.click(submitBtn);
+
+    const appointmentDoctor = screen.getByText(/Peter Omaha/i);
+    const appointmentCity = screen.getByText(/Atlanta/i);
+    expect(appointmentDoctor).toBeInTheDocument();
+    expect(appointmentCity).toBeInTheDocument();
   });
 });
