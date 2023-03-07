@@ -7,7 +7,6 @@ import DeleteDoctor from './pages/DeleteDoctor';
 import DoctorDetails from './pages/DoctorDetails';
 import MyReservations from './pages/MyReservations';
 import NavPanel from './components/NavPanel';
-import Logout from './components/Logout';
 import LogIn from './pages/LogIn';
 import './App.css';
 
@@ -23,7 +22,6 @@ function App() {
         <Route path="/delete_doctor" element={<DeleteDoctor />} />
         <Route path="/doctor/:id" element={<DoctorDetails />} />
         <Route path="/login" element={<LogIn />} />
-        <Route path="/logout" element={<Logout />} />
       </Routes>
     </div>
   );
