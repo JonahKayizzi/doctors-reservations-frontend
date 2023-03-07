@@ -10,21 +10,19 @@ import NavPanel from './components/NavPanel';
 import LogIn from './pages/LogIn';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App flex flex-col md:flex-row h-screen">
-      <NavPanel />
-      <Routes>
-        <Route path="/" element={<Doctors />} />
-        <Route path="/add_doctor" element={<AddDoctor />} />
-        <Route path="/add_appointment/:id?" element={<AddReservation />} />
-        <Route path="/appointments" element={<MyReservations />} />
-        <Route path="/delete_doctor" element={<DeleteDoctor />} />
-        <Route path="/doctor/:id" element={<DoctorDetails />} />
-        <Route path="/login" element={<LogIn />} />
-      </Routes>
-    </div>
-  );
-}
+const App = () => (
+  <div className="App flex flex-col md:flex-row h-screen">
+    <NavPanel />
+    <Routes>
+      <Route path="/" element={<Doctors />} />
+      <Route path="/add_doctor" element={<AddDoctor />} />
+      <Route path="/add_appointment/:id?" element={<AddReservation />} />
+      <Route path="/appointments" element={<MyReservations />} />
+      <Route path="/delete_doctor" element={<DeleteDoctor />} />
+      <Route path="/doctor/:id" element={<DoctorDetails />} />
+      <Route path="/login" element={<LogIn />} />
+    </Routes>
+  </div>
+);
 
 export default App;
