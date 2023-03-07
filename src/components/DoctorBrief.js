@@ -18,7 +18,7 @@ const DoctorBrief = (props) => {
       <img src={doctorBg} alt="sitting area" />
       <div className="absolute flex flex-col items-center pt-4 w-full h-full justify-between">
         <Link to={`/doctor/${id}`} className="my-auto hover:opacity-80 hover:scale-110 hover:duration-500">
-          <img src={image} alt="sitting area" />
+          <img src={image} alt="doctor pic" />
         </Link>
         <div className="flex flex-col items-center pt-4 w-full gap-1 md:gap-2">
           <h2 className="font-black text-xl">{name.toUpperCase()}</h2>

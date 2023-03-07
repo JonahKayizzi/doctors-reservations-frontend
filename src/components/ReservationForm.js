@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { getDoctorsData } from '../redux/doctors/doctorsSlice';
-import { addReservation } from '../redux/reservations/reservationsSlice';
+import { addReservation, getReservations } from '../redux/reservations/reservationsSlice';
 
 const cities = [
   { id: 1, name: 'New York City' },
@@ -21,13 +21,14 @@ const cities = [
 const ReservationForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const userId = JSON.parse(sessionStorage.getItem('user'));
   const { id: doctorId } = useParams();
   const doctors = useSelector((state) => state.doctorsReducer.doctors);
   const currentDoctor = doctors.filter((doctor) => doctor.id === parseInt(doctorId, 10))[0];
 
   const [reservation, setReservation] = useState({
     doctor_id: doctorId,
-    user_id: JSON.parse(sessionStorage.getItem('user')),
+    user_id: userId,
   });
 
   useEffect(() => {
@@ -44,6 +45,8 @@ const ReservationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addReservation(reservation));
+    dispatch(getDoctorsData());
+    dispatch(getReservations(userId));
     navigate('/appointments');
   };
 
@@ -62,7 +65,7 @@ const ReservationForm = () => {
       <form className="w-5/8 flex flex-col gap-2 lg:flex-row" onSubmit={handleSubmit}>
 
         <select name="city" className="active-green border-2 border-white-200 rounded-3xl px-3 py-1 lg:w-3/8 text-xs" onChange={handleChange} required>
-          <option disabled selected value> Choose a city </option>
+          <option selected disabled value> Choose a city </option>
           {cities.map((city) => (
             <option key={city.id} value={city.name}>
               {city.name}
@@ -70,11 +73,11 @@ const ReservationForm = () => {
           ))}
         </select>
 
-        <input type="date" name="date" className="active-green border-2 border-white-200 rounded-3xl px-3 py-1 lg:w-3/8 text-xs" onChange={handleChange} required />
+        <input aria-label="date-input" type="date" name="date" className="active-green border-2 border-white-200 rounded-3xl px-3 py-1 lg:w-3/8 text-xs" onChange={handleChange} required />
 
         { doctorId === undefined && (
           <select name="doctor_id" className="active-green border-2 border-white-200 rounded-3xl px-3 py-1 lg:w-3/8 text-xs" onChange={handleChange} required>
-            <option disabled selected value> Choose a doctor </option>
+            <option selected disabled value> Choose a doctor </option>
             {doctors.map((doctor) => (
               <option key={doctor.id} value={doctor.id}>
                 {doctor.name}
