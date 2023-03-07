@@ -1,0 +1,124 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.active-green {
+  background-color: #98bf10;
+}
+
+.text-active-green {
+  color: #98bf10;
+}
+
+.bm-burger-button {
+  top: 15px;
+  left: 20px;
+  position: absolute;
+  padding: 1rem;
+}
+
+.bm-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #98bf10;
+}
+
+.bm-menu {
+  background: #98bf10;
+  width: 100vw;
+}
+
+.bm-menu-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.bm-item-list {
+  position: relative;
+  top: 56px;
+  height: 100%;
+  width: 100%;
+}
+
+.bm-item {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.15rem;
+  padding: 0.8rem 1.5rem;
+  color: white;
+  font-weight: 600;
+  border-top: 2px solid white;
+}
+
+.bm-item:last-of-type {
+  border-bottom: 2px solid white;
+}
+
+.bm-burger-bars {
+  background: #98bf10;
+  border-radius: 2px;
+}
+
+.bm-cross {
+  border-radius: 2px;
+  background: white;
+}
+
+.btn-carousel {
+  color: red !important;
+}
+
+.prev-btn:focus,
+.next-btn:focus {
+  background-color: #98bf10;
+}
+
+.bg-form {
+  background: url("./assets/doctors-form-bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-color: #afd917;
+  opacity: 0.7;
+  background-blend-mode: multiply;
+}
