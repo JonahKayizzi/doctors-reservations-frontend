@@ -28,7 +28,7 @@ const store = mockStore({
     reservations: [
       {
         id: 1,
-        date: '2023-05-16',
+        date: '2223-05-16',
         city: 'Atlanta',
         user_id: 1,
         doctor_id: 1,
@@ -75,7 +75,7 @@ describe('Make Appointments page', () => {
     const doctorField = screen.getByText(/Choose a doctor/i);
     const submitBtn = screen.getByText(/Book Now/i);
     fireEvent.change(cityField, { target: { value: 'Atlanta' } });
-    fireEvent.change(dateField, { target: { value: '2023-05-16' } });
+    fireEvent.change(dateField, { target: { value: '2223-05-16' } });
     fireEvent.change(doctorField, { target: { value: 'Peter Omaha' } });
     fireEvent.click(submitBtn);
 
