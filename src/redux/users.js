@@ -19,7 +19,7 @@ export const fetchUser = createAsyncThunk(
       .then((resp) => resp.json())
       .then((result) => result);
     return resp;
-  }
+  },
 );
 
 export const usersSlice = createSlice({

@@ -69,4 +69,8 @@ LogIn.defaultProps = {
   onLogin: () => {},
 };
 
+LogIn.propTypes = {
+  onLogin: PropTypes.func,
+};
+
 export default LogIn;
