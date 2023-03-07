@@ -22,14 +22,6 @@ export const fetchUser = createAsyncThunk(
   },
 );
 
-export const logout = () => {
-  sessionStorage.removeItem('user');
-  sessionStorage.removeItem('username');
-  return {
-    type: 'LOGOUT',
-  };
-};
-
 export const usersSlice = createSlice({
   name: 'user',
   initialState,

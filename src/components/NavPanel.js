@@ -51,6 +51,12 @@ const NavPanel = () => {
     setMenuOpen(false);
   };
 
+  const handleLogout = () => {
+    sessionStorage.clear();
+    localStorage.clear();
+    window.location.reload();
+  };
+
   return (
     <div>
       <div className="flex fixed p-1 md:hidden w-screen bg-white h-18 items-center justify-center border-b z-50">
@@ -97,12 +103,13 @@ const NavPanel = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? activeClassName : inactive)}
-            to="/logout"
           >
             <p className="text-xs text-bold text-center">
               {sessionStorage.getItem('username')}
             </p>
-            Logout
+            <button type="button" onClick={handleLogout}>
+              Logout
+            </button>
           </NavLink>
         </Menu>
         <img
@@ -171,9 +178,10 @@ const NavPanel = () => {
         </div>
         <NavLink
           className={({ isActive }) => (isActive ? activeClassName : inactive)}
-          to="/logout"
         >
-          Logout
+          <button type="button" onClick={handleLogout}>
+            Logout
+          </button>
         </NavLink>
       </div>
     </div>
