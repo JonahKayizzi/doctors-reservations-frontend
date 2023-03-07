@@ -11,7 +11,7 @@ import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-function renderApp() {
+const renderApp = () => {
   const { users } = store.getState().users;
   root.render(
     <React.StrictMode>
@@ -28,6 +28,6 @@ function renderApp() {
       </Router>
     </React.StrictMode>,
   );
-}
+};
 
 renderApp();

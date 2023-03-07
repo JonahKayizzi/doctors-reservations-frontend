@@ -12,7 +12,7 @@ import { reducer } from '../../redux/configureStore';
 
 const middlewares = [logger, thunk];
 
-export default function renderWithProviders(
+const renderWithProviders = (
   ui,
   {
     // eslint-disable-next-line no-unused-vars
@@ -23,12 +23,12 @@ export default function renderWithProviders(
     }, applyMiddleware(...middlewares)),
     ...renderOptions
   } = {},
-) {
+) => {
   // eslint-disable-next-line react/prop-types
-  function Wrapper({ children }) {
-    return <Router><Provider store={store}>{children}</Provider></Router>;
-  }
+  const Wrapper = ({ children }) => <Router><Provider store={store}>{children}</Provider></Router>;
 
   // Return an object with the store and all of RTL's query functions
   return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
-}
+};
+
+export default renderWithProviders;
