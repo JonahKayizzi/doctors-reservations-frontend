@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const getDoctorsData = createAsyncThunk('doctors/getDoctorsData', async () => {
   const resp = await fetch(
-    'https://doctors-reservations-rily.onrender.com/api/v1/doctors'
+    'https://doctors-reservations-rily.onrender.com/api/v1/doctors',
   )
     .then((resp) => resp.json())
     .then((result) => result);
@@ -18,7 +18,7 @@ const addDoctor = createAsyncThunk('doctors/addDoctor', async (obj) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(obj),
-    }
+    },
   );
   return response.json();
 });
@@ -28,7 +28,7 @@ const deleteDoctor = createAsyncThunk('doctors/deleteDoctor', async (id) => {
     `https://doctors-reservations-rily.onrender.com/api/v1/doctors/${id}`,
     {
       method: 'Delete',
-    }
+    },
   )
     .then((resp) => resp.json())
     .then((result) => result);

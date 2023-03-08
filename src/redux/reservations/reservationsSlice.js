@@ -4,12 +4,12 @@ const getReservations = createAsyncThunk(
   'reservations/getReservations',
   async (id) => {
     const resp = await fetch(
-      `https://doctors-reservations-rily.onrender.com/api/v1/users/${id}/reservations`
+      `https://doctors-reservations-rily.onrender.com/api/v1/users/${id}/reservations`,
     )
       .then((resp) => resp.json())
       .then((result) => result);
     return resp;
-  }
+  },
 );
 
 const addReservation = createAsyncThunk(
@@ -23,10 +23,10 @@ const addReservation = createAsyncThunk(
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(obj),
-      }
+      },
     );
     return response.json();
-  }
+  },
 );
 
 const reservationsSlice = createSlice({
@@ -38,7 +38,7 @@ const reservationsSlice = createSlice({
   reducers: {
     deleteReservations(state, action) {
       const newState = state.reservations.filter(
-        (reservation) => reservation.doctor_id !== action.payload
+        (reservation) => reservation.doctor_id !== action.payload,
       );
       return {
         ...state,
