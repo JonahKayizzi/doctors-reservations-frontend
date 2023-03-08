@@ -4,7 +4,7 @@ const initialState = {
   users: null,
 };
 
-const URL = 'http://127.0.0.1:3000/api/v1/users';
+const URL = 'https://doctors-reservations-rily.onrender.com/api/v1/users';
 
 export const fetchUser = createAsyncThunk(
   'users/fetchUser',
@@ -19,7 +19,7 @@ export const fetchUser = createAsyncThunk(
       .then((resp) => resp.json())
       .then((result) => result);
     return resp;
-  },
+  }
 );
 
 export const usersSlice = createSlice({

@@ -1,22 +1,33 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const getReservations = createAsyncThunk('reservations/getReservations', async (id) => {
-  const resp = await fetch(`http://localhost:3000/api/v1/users/${id}/reservations`)
-    .then((resp) => resp.json())
-    .then((result) => result);
-  return resp;
-});
+const getReservations = createAsyncThunk(
+  'reservations/getReservations',
+  async (id) => {
+    const resp = await fetch(
+      `https://doctors-reservations-rily.onrender.com/api/v1/users/${id}/reservations`
+    )
+      .then((resp) => resp.json())
+      .then((result) => result);
+    return resp;
+  }
+);
 
-const addReservation = createAsyncThunk('reservations/addReservation', async (obj, id) => {
-  const response = await fetch(`http://localhost:3000/api/v1/users/${id}/reservations`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(obj),
-  });
-  return response.json();
-});
+const addReservation = createAsyncThunk(
+  'reservations/addReservation',
+  async (obj, id) => {
+    const response = await fetch(
+      `https://doctors-reservations-rily.onrender.com/api/v1/users/${id}/reservations`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(obj),
+      }
+    );
+    return response.json();
+  }
+);
 
 const reservationsSlice = createSlice({
   name: 'greeting',
@@ -26,9 +37,9 @@ const reservationsSlice = createSlice({
   },
   reducers: {
     deleteReservations(state, action) {
-      const newState = state.reservations.filter((reservation) => (
-        reservation.doctor_id !== action.payload
-      ));
+      const newState = state.reservations.filter(
+        (reservation) => reservation.doctor_id !== action.payload
+      );
       return {
         ...state,
         reservations: newState,
